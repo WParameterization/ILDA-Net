@@ -1,0 +1,70 @@
+Using TensorFlow backend.
+[2023-01-07 14:51:17,353][    INFO] {'criterion': {'kwargs': {'use_weight': False}, 'type': 'CELoss'},
+ 'dataset': {'batch_size': 2,
+             'ignore_label': 255,
+             'mean': [123.675, 116.28, 103.53],
+             'n_sup': 195,
+             'noise_std': 0.1,
+             'std': [58.395, 57.12, 57.375],
+             'train': {'GaussianBlur': False,
+                       'crop': {'size': [256, 256], 'type': 'rand'},
+                       'data_list': '../../../../data/splits/pascal/1464/labeled.txt',
+                       'data_root': '../../../../data/VOC2012',
+                       'flip': True,
+                       'rand_resize': [0.5, 2.0]},
+             'type': 'pascal_semi',
+             'val': {'crop': {'size': [256, 256], 'type': 'center'},
+                     'data_list': '../../../../data/splits/pascal/val.txt',
+                     'data_root': '../../../../data/VOC2012'},
+             'workers': 1},
+ 'exp_path': '',
+ 'net': {'bo': {'type': 'u2pl.models.model_helper.Bottleneck'},
+         'decoder': {'type': 'u2pl.models.model_helper.Decoder'},
+         'ema_decay': 0.99,
+         'encoder': {'type': 'u2pl.models.model_helper.Encoder'},
+         'fc_inch': '121,',
+         'filters': '32,',
+         'in_channels': '3,',
+         'n_class': '9,',
+         'num_classes': 9,
+         'sync_bn': True},
+ 'save_path': 'checkpoints101_rgb',
+ 'saver': {'pretrain': '', 'snapshot_dir': 'checkpoints101_rgb'},
+ 'trainer': {'contrastive': {'current_class_negative_threshold': 1,
+                             'current_class_threshold': 0.3,
+                             'high_rank': 20,
+                             'low_entropy_threshold': 20,
+                             'low_rank': 3,
+                             'negative_high_entropy': True,
+                             'num_negatives': 101,
+                             'num_queries': 256,
+                             'temperature': 0.5,
+                             'unsupervised_entropy_ignore': 80},
+             'epochs': 80,
+             'eval_on': True,
+             'lr_scheduler': {'kwargs': {'power': 0.9}, 'mode': 'poly'},
+             'optimizer': {'kwargs': {'lr': 0.001,
+                                      'momentum': 0.9,
+                                      'weight_decay': 0.0001},
+                           'type': 'SGD'},
+             'unsupervised': {'TTA': False,
+                              'apply_aug': 'cutmix',
+                              'drop_percent': 80}}}
+set random seed to 2
+[2023-01-07 14:51:22,588][    INFO] # samples: 693
+[2023-01-07 14:51:22,592][    INFO] # samples: 207
+[2023-01-07 14:51:22,592][    INFO] Get loader Done...
+[2023-01-07 14:51:22,904][    INFO] The kwargs for lr scheduler: 0.9
+[W reducer.cpp:1050] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters. This flag results in an extra traversal of the autograd graph every iteration, which can adversely affect performance. If your model indeed never has any unused parameters, consider turning this flag off. Note that this warning may be a false positive your model has flow control causing later iterations to have unused parameters. (function operator())
+[2023-01-07 14:51:27,025][    INFO] [195][none] Iter [0/78560]	Data 0.00 (0.00)	Time 3.95 (3.95)	Sup 2.520 (2.520)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-01-07 14:51:29,598][    INFO] [195][none] Iter [10/78560]	Data 0.00 (0.00)	Time 0.26 (0.26)	Sup 0.880 (1.572)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-01-07 14:51:32,147][    INFO] [195][none] Iter [20/78560]	Data 0.00 (0.00)	Time 0.25 (0.25)	Sup 0.434 (0.878)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-01-07 14:51:34,687][    INFO] [195][none] Iter [30/78560]	Data 0.00 (0.00)	Time 0.25 (0.25)	Sup 0.204 (0.511)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-01-07 14:51:37,220][    INFO] [195][none] Iter [40/78560]	Data 0.00 (0.00)	Time 0.25 (0.25)	Sup 0.198 (0.378)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-01-07 14:51:39,757][    INFO] [195][none] Iter [50/78560]	Data 0.00 (0.00)	Time 0.26 (0.25)	Sup 0.091 (0.382)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-01-07 14:51:42,290][    INFO] [195][none] Iter [60/78560]	Data 0.00 (0.00)	Time 0.25 (0.25)	Sup 0.223 (0.304)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-01-07 14:51:44,842][    INFO] [195][none] Iter [70/78560]	Data 0.00 (0.00)	Time 0.25 (0.26)	Sup 0.069 (0.241)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-01-07 14:51:47,395][    INFO] [195][none] Iter [80/78560]	Data 0.00 (0.00)	Time 0.25 (0.26)	Sup 0.296 (0.286)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-01-07 14:51:49,945][    INFO] [195][none] Iter [90/78560]	Data 0.00 (0.00)	Time 0.25 (0.25)	Sup 0.204 (0.300)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-01-07 14:51:52,497][    INFO] [195][none] Iter [100/78560]	Data 0.00 (0.00)	Time 0.26 (0.26)	Sup 0.252 (0.228)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-01-07 14:51:55,041][    INFO] [195][none] Iter [110/78560]	Data 0.00 (0.00)	Time 0.26 (0.25)	Sup 0.406 (0.241)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100

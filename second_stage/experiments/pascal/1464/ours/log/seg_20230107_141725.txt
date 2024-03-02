@@ -1,0 +1,21 @@
+Traceback (most recent call last):
+  File "../../../../train_semi_transformer.py", line 19, in <module>
+    from u2pl.models.vit_transformer import VisionTransformer
+  File "/root/autodl-tmp/U2PL/u2pl/models/vit_transformer.py", line 19, in <module>
+    from u2pl.models import vit_seg_configs as configs
+  File "/root/autodl-tmp/U2PL/u2pl/models/vit_seg_configs.py", line 1, in <module>
+    import ml_collections
+ModuleNotFoundError: No module named 'ml_collections'
+Traceback (most recent call last):
+  File "/root/miniconda3/envs/uda/lib/python3.7/runpy.py", line 193, in _run_module_as_main
+    "__main__", mod_spec)
+  File "/root/miniconda3/envs/uda/lib/python3.7/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/root/miniconda3/envs/uda/lib/python3.7/site-packages/torch/distributed/launch.py", line 340, in <module>
+    main()
+  File "/root/miniconda3/envs/uda/lib/python3.7/site-packages/torch/distributed/launch.py", line 326, in main
+    sigkill_handler(signal.SIGTERM, None)  # not coming back
+  File "/root/miniconda3/envs/uda/lib/python3.7/site-packages/torch/distributed/launch.py", line 301, in sigkill_handler
+    raise subprocess.CalledProcessError(returncode=last_return_code, cmd=cmd)
+subprocess.CalledProcessError: Command '['/root/miniconda3/envs/uda/bin/python', '-u', '../../../../train_semi_transformer.py', '--local_rank=0', '--config=config.yaml', '--seed', '2', '--port', '1254']' returned non-zero exit status 1.
+Killing subprocess 25078

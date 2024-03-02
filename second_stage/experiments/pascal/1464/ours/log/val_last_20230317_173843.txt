@@ -1,0 +1,37 @@
+Using TensorFlow backend.
+[2023-03-17 17:38:45,685 INFO eval.py line 79 43339] Namespace(base_size=2048, config='config.yaml', crop=False, img_size=256, model_path='checkpoints101_rgb/ckpt_best.pth', n_skip=3, names_path='../../vis_meta/cityscapes/cityscapesnames.mat', num_classes=9, save_folder='checkpoints101_rgb/results', scales=[1.0], vit_name='R50-ViT-B_16', vit_patches_size=16)
+[2023-03-17 17:38:45,686 INFO eval.py line 120 43339] => creating model from 'checkpoints101_rgb/ckpt_best.pth' ...
+[2023-03-17 17:38:51,197 INFO eval.py line 136 43339] => load checkpoint[teacher_state]
+[2023-03-17 17:38:51,461 INFO eval.py line 141 43339] Load Model Done!
+[2023-03-17 17:38:51,461 INFO eval.py line 328 43339] >>>>>>>>>>>>>>>> Start Evaluation >>>>>>>>>>>>>>>>
+[2023-03-17 17:38:52,072 INFO eval.py line 359 43339] Test: [10/207] Data 0.022 (0.018) Batch 0.062 (0.061).
+[2023-03-17 17:38:52,717 INFO eval.py line 359 43339] Test: [20/207] Data 0.023 (0.021) Batch 0.063 (0.063).
+[2023-03-17 17:38:53,342 INFO eval.py line 359 43339] Test: [30/207] Data 0.023 (0.022) Batch 0.063 (0.063).
+[2023-03-17 17:38:53,978 INFO eval.py line 359 43339] Test: [40/207] Data 0.023 (0.022) Batch 0.062 (0.063).
+[2023-03-17 17:38:54,608 INFO eval.py line 359 43339] Test: [50/207] Data 0.022 (0.022) Batch 0.062 (0.063).
+[2023-03-17 17:38:55,175 INFO eval.py line 359 43339] Test: [60/207] Data 0.019 (0.022) Batch 0.055 (0.062).
+[2023-03-17 17:38:55,721 INFO eval.py line 359 43339] Test: [70/207] Data 0.019 (0.021) Batch 0.056 (0.061).
+[2023-03-17 17:38:56,266 INFO eval.py line 359 43339] Test: [80/207] Data 0.017 (0.021) Batch 0.053 (0.060).
+[2023-03-17 17:38:56,810 INFO eval.py line 359 43339] Test: [90/207] Data 0.019 (0.021) Batch 0.055 (0.059).
+[2023-03-17 17:38:57,354 INFO eval.py line 359 43339] Test: [100/207] Data 0.018 (0.021) Batch 0.053 (0.059).
+[2023-03-17 17:38:57,898 INFO eval.py line 359 43339] Test: [110/207] Data 0.019 (0.020) Batch 0.054 (0.058).
+[2023-03-17 17:38:58,452 INFO eval.py line 359 43339] Test: [120/207] Data 0.019 (0.020) Batch 0.055 (0.058).
+[2023-03-17 17:38:58,997 INFO eval.py line 359 43339] Test: [130/207] Data 0.018 (0.020) Batch 0.054 (0.058).
+[2023-03-17 17:38:59,542 INFO eval.py line 359 43339] Test: [140/207] Data 0.019 (0.020) Batch 0.054 (0.058).
+[2023-03-17 17:39:00,068 INFO eval.py line 359 43339] Test: [150/207] Data 0.018 (0.020) Batch 0.055 (0.057).
+[2023-03-17 17:39:00,625 INFO eval.py line 359 43339] Test: [160/207] Data 0.020 (0.020) Batch 0.056 (0.057).
+[2023-03-17 17:39:01,180 INFO eval.py line 359 43339] Test: [170/207] Data 0.018 (0.020) Batch 0.056 (0.057).
+[2023-03-17 17:39:01,736 INFO eval.py line 359 43339] Test: [180/207] Data 0.019 (0.020) Batch 0.058 (0.057).
+[2023-03-17 17:39:02,380 INFO eval.py line 359 43339] Test: [190/207] Data 0.027 (0.020) Batch 0.068 (0.057).
+[2023-03-17 17:39:03,024 INFO eval.py line 359 43339] Test: [200/207] Data 0.024 (0.020) Batch 0.067 (0.058).
+[2023-03-17 17:39:03,496 INFO eval.py line 386 43339]  * class [0] IoU 91.75
+[2023-03-17 17:39:03,496 INFO eval.py line 386 43339]  * class [1] IoU 70.29
+[2023-03-17 17:39:03,496 INFO eval.py line 386 43339]  * class [2] IoU 73.83
+[2023-03-17 17:39:03,496 INFO eval.py line 386 43339]  * class [3] IoU 80.63
+[2023-03-17 17:39:03,496 INFO eval.py line 386 43339]  * class [4] IoU 69.04
+[2023-03-17 17:39:03,496 INFO eval.py line 386 43339]  * class [5] IoU 65.88
+[2023-03-17 17:39:03,496 INFO eval.py line 386 43339]  * class [6] IoU 73.47
+[2023-03-17 17:39:03,496 INFO eval.py line 386 43339]  * class [7] IoU 83.47
+[2023-03-17 17:39:03,496 INFO eval.py line 386 43339]  * class [8] IoU 99.29
+[2023-03-17 17:39:03,497 INFO eval.py line 387 43339]  * mIoU 78.63
+[2023-03-17 17:39:03,497 INFO eval.py line 388 43339] <<<<<<<<<<<<<<<<< End  Evaluation <<<<<<<<<<<<<<<<<

@@ -1,0 +1,196 @@
+[2022-12-08 19:50:22,183][    INFO] {'criterion': {'kwargs': {'use_weight': False}, 'type': 'CELoss'},
+ 'dataset': {'batch_size': 2,
+             'ignore_label': 255,
+             'mean': [123.675, 116.28, 103.53],
+             'n_sup': 195,
+             'noise_std': 0.1,
+             'std': [58.395, 57.12, 57.375],
+             'train': {'GaussianBlur': False,
+                       'crop': {'size': [128, 128], 'type': 'rand'},
+                       'data_list': '../../../../data/splits/pascal/1464/labeled.txt',
+                       'data_root': '../../../../data/VOC2012',
+                       'flip': True,
+                       'rand_resize': [0.5, 2.0]},
+             'type': 'pascal_semi',
+             'val': {'crop': {'size': [128, 128], 'type': 'center'},
+                     'data_list': '../../../../data/splits/pascal/val.txt',
+                     'data_root': '../../../../data/VOC2012'},
+             'workers': 1},
+ 'exp_path': '',
+ 'net': {'decoder': {'kwargs': {'dilations': [12, 24, 36], 'inner_planes': 256},
+                     'type': 'u2pl.models.decoder.dec_deeplabv3_plus'},
+         'ema_decay': 0.99,
+         'encoder': {'kwargs': {'fpn': True,
+                                'multi_grid': True,
+                                'replace_stride_with_dilation': [False,
+                                                                 True,
+                                                                 True],
+                                'zero_init_residual': True},
+                     'type': 'u2pl.models.resnet.resnet101'},
+         'num_classes': 9,
+         'sync_bn': True},
+ 'save_path': 'checkpoints101_rgb',
+ 'saver': {'pretrain': '', 'snapshot_dir': 'checkpoints101_rgb'},
+ 'trainer': {'contrastive': {'current_class_negative_threshold': 1,
+                             'current_class_threshold': 0.3,
+                             'high_rank': 20,
+                             'low_entropy_threshold': 20,
+                             'low_rank': 3,
+                             'negative_high_entropy': True,
+                             'num_negatives': 101,
+                             'num_queries': 256,
+                             'temperature': 0.5,
+                             'unsupervised_entropy_ignore': 80},
+             'epochs': 80,
+             'eval_on': True,
+             'lr_scheduler': {'kwargs': {'power': 0.9}, 'mode': 'poly'},
+             'optimizer': {'kwargs': {'lr': 0.001,
+                                      'momentum': 0.9,
+                                      'weight_decay': 0.0001},
+                           'type': 'SGD'},
+             'unsupervised': {'TTA': False,
+                              'apply_aug': 'cutmix',
+                              'drop_percent': 80}}}
+set random seed to 2
+[Info] Load ImageNet pretrain from '/home/jidian/sdb1/jinlei/U2PL/prtain/resnet101.pth' 
+missing_keys:  [] 
+unexpected_keys:  ['fc.weight', 'fc.bias']
+[2022-12-08 19:50:28,752][    INFO] # samples: 202
+[2022-12-08 19:50:28,756][    INFO] # samples: 1418
+[2022-12-08 19:50:28,758][    INFO] # samples: 180
+[2022-12-08 19:50:28,758][    INFO] Get loader Done...
+[Info] Load ImageNet pretrain from '/home/jidian/sdb1/jinlei/U2PL/prtain/resnet101.pth' 
+missing_keys:  [] 
+unexpected_keys:  ['fc.weight', 'fc.bias']
+[2022-12-08 19:50:31,944][    INFO] The kwargs for lr scheduler: 0.9
+[2022-12-08 19:50:36,490][    INFO] [195][none] Iter [0/78560]	Data 0.00 (0.00)	Time 4.46 (4.46)	Sup 2.463 (2.463)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2022-12-08 19:50:39,456][    INFO] [195][none] Iter [10/78560]	Data 0.00 (0.00)	Time 0.31 (0.30)	Sup 0.422 (1.211)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2022-12-08 19:50:42,265][    INFO] [195][none] Iter [20/78560]	Data 0.00 (0.00)	Time 0.28 (0.28)	Sup 0.608 (0.630)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2022-12-08 19:50:44,502][    INFO] [195][none] Iter [30/78560]	Data 0.00 (0.00)	Time 0.31 (0.22)	Sup 0.399 (0.784)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2022-12-08 19:50:46,877][    INFO] [195][none] Iter [40/78560]	Data 0.00 (0.00)	Time 0.25 (0.24)	Sup 0.291 (0.441)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2022-12-08 19:50:49,435][    INFO] [195][none] Iter [50/78560]	Data 0.00 (0.00)	Time 0.26 (0.26)	Sup 0.920 (0.547)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2022-12-08 19:50:52,085][    INFO] [195][none] Iter [60/78560]	Data 0.00 (0.00)	Time 0.26 (0.26)	Sup 0.221 (0.510)	Uns -0.000 (0.000)	Con -0.000 (0.000)	LR 0.00100
+[2022-12-08 19:50:54,563][    INFO] [195][none] Iter [70/78560]	Data 0.00 (0.00)	Time 0.35 (0.25)	Sup 0.718 (0.433)	Uns -0.000 (0.000)	Con -0.000 (0.000)	LR 0.00100
+[2022-12-08 19:50:57,003][    INFO] [195][none] Iter [80/78560]	Data 0.00 (0.00)	Time 0.25 (0.24)	Sup 0.358 (0.471)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2022-12-08 19:50:59,631][    INFO] [195][none] Iter [90/78560]	Data 0.00 (0.00)	Time 0.24 (0.26)	Sup 0.186 (0.459)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2022-12-08 19:51:02,140][    INFO] [195][none] Iter [100/78560]	Data 0.00 (0.00)	Time 0.25 (0.25)	Sup 0.167 (0.472)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2022-12-08 19:51:04,539][    INFO] [195][none] Iter [110/78560]	Data 0.00 (0.00)	Time 0.16 (0.24)	Sup 0.110 (0.305)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2022-12-08 19:51:06,889][    INFO] [195][none] Iter [120/78560]	Data 0.00 (0.00)	Time 0.26 (0.23)	Sup 0.513 (0.183)	Uns -0.000 (0.000)	Con -0.000 (0.000)	LR 0.00100
+[2022-12-08 19:51:09,523][    INFO] [195][none] Iter [130/78560]	Data 0.00 (0.00)	Time 0.27 (0.26)	Sup 0.216 (0.235)	Uns -0.000 (0.000)	Con -0.000 (0.000)	LR 0.00100
+[2022-12-08 19:51:12,203][    INFO] [195][none] Iter [140/78560]	Data 0.00 (0.00)	Time 0.28 (0.27)	Sup 0.165 (0.292)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2022-12-08 19:51:14,902][    INFO] [195][none] Iter [150/78560]	Data 0.00 (0.00)	Time 0.27 (0.27)	Sup 0.240 (1.151)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2022-12-08 19:51:17,197][    INFO] [195][none] Iter [160/78560]	Data 0.00 (0.00)	Time 0.30 (0.23)	Sup 0.456 (0.529)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2022-12-08 19:51:19,900][    INFO] [195][none] Iter [170/78560]	Data 0.00 (0.00)	Time 0.30 (0.27)	Sup 0.616 (0.365)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2022-12-08 19:51:22,825][    INFO] [195][none] Iter [180/78560]	Data 0.00 (0.00)	Time 0.30 (0.29)	Sup 0.957 (0.313)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2022-12-08 19:51:25,735][    INFO] [195][none] Iter [190/78560]	Data 0.00 (0.00)	Time 0.30 (0.29)	Sup 1.034 (0.439)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2022-12-08 19:51:28,029][    INFO] [195][none] Iter [200/78560]	Data 0.00 (0.00)	Time 0.16 (0.23)	Sup 0.384 (0.314)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2022-12-08 19:51:30,558][    INFO] [195][none] Iter [210/78560]	Data 0.00 (0.00)	Time 0.28 (0.25)	Sup 0.246 (0.168)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2022-12-08 19:51:33,147][    INFO] [195][none] Iter [220/78560]	Data 0.00 (0.00)	Time 0.26 (0.26)	Sup 0.010 (0.315)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2022-12-08 19:51:35,623][    INFO] [195][none] Iter [230/78560]	Data 0.00 (0.00)	Time 0.26 (0.25)	Sup 0.271 (0.222)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2022-12-08 19:51:37,964][    INFO] [195][none] Iter [240/78560]	Data 0.00 (0.00)	Time 0.16 (0.23)	Sup 0.278 (0.267)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2022-12-08 19:51:40,702][    INFO] [195][none] Iter [250/78560]	Data 0.00 (0.00)	Time 0.23 (0.27)	Sup 0.864 (0.349)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2022-12-08 19:51:43,274][    INFO] [195][none] Iter [260/78560]	Data 0.00 (0.00)	Time 0.24 (0.26)	Sup 0.466 (0.427)	Uns -0.000 (0.000)	Con -0.000 (0.000)	LR 0.00100
+[2022-12-08 19:51:45,864][    INFO] [195][none] Iter [270/78560]	Data 0.00 (0.00)	Time 0.25 (0.26)	Sup 0.299 (0.457)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2022-12-08 19:51:48,156][    INFO] [195][none] Iter [280/78560]	Data 0.00 (0.00)	Time 0.18 (0.23)	Sup 0.036 (0.186)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2022-12-08 19:51:50,860][    INFO] [195][none] Iter [290/78560]	Data 0.00 (0.00)	Time 0.30 (0.27)	Sup 0.108 (0.558)	Uns -0.000 (0.000)	Con -0.000 (0.000)	LR 0.00100
+[2022-12-08 19:51:53,792][    INFO] [195][none] Iter [300/78560]	Data 0.00 (0.00)	Time 0.30 (0.29)	Sup 0.252 (0.354)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2022-12-08 19:51:56,586][    INFO] [195][none] Iter [310/78560]	Data 0.00 (0.00)	Time 0.29 (0.28)	Sup 0.090 (0.317)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2022-12-08 19:51:59,367][    INFO] [195][none] Iter [320/78560]	Data 0.00 (0.00)	Time 0.19 (0.28)	Sup 0.399 (0.425)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2022-12-08 19:52:01,756][    INFO] [195][none] Iter [330/78560]	Data 0.00 (0.00)	Time 0.26 (0.24)	Sup 0.272 (0.295)	Uns -0.000 (0.000)	Con -0.000 (0.000)	LR 0.00100
+[2022-12-08 19:52:04,343][    INFO] [195][none] Iter [340/78560]	Data 0.00 (0.00)	Time 0.26 (0.26)	Sup 0.195 (0.201)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2022-12-08 19:52:07,029][    INFO] [195][none] Iter [350/78560]	Data 0.00 (0.00)	Time 0.25 (0.27)	Sup 1.340 (0.517)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2022-12-08 19:52:09,832][    INFO] [195][none] Iter [360/78560]	Data 0.00 (0.00)	Time 0.26 (0.28)	Sup 0.229 (0.259)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2022-12-08 19:52:12,166][    INFO] [195][none] Iter [370/78560]	Data 0.00 (0.00)	Time 0.18 (0.23)	Sup 0.059 (0.329)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2022-12-08 19:52:14,886][    INFO] [195][none] Iter [380/78560]	Data 0.00 (0.00)	Time 0.29 (0.27)	Sup 0.035 (0.271)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2022-12-08 19:52:17,579][    INFO] [195][none] Iter [390/78560]	Data 0.00 (0.00)	Time 0.27 (0.27)	Sup 0.033 (0.138)	Uns -0.000 (0.000)	Con -0.000 (0.000)	LR 0.00100
+[2022-12-08 19:52:20,104][    INFO] [195][none] Iter [400/78560]	Data 0.00 (0.00)	Time 0.26 (0.25)	Sup 0.021 (0.307)	Uns -0.000 (0.000)	Con -0.000 (0.000)	LR 0.00100
+[2022-12-08 19:52:22,250][    INFO] [195][none] Iter [410/78560]	Data 0.00 (0.00)	Time 0.30 (0.21)	Sup 0.460 (0.317)	Uns -0.000 (0.000)	Con -0.000 (0.000)	LR 0.00100
+[2022-12-08 19:52:24,740][    INFO] [195][none] Iter [420/78560]	Data 0.00 (0.00)	Time 0.25 (0.25)	Sup 0.664 (0.258)	Uns -0.000 (0.000)	Con -0.000 (0.000)	LR 0.00100
+[2022-12-08 19:52:27,286][    INFO] [195][none] Iter [430/78560]	Data 0.00 (0.00)	Time 0.24 (0.25)	Sup 0.484 (0.187)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2022-12-08 19:52:29,807][    INFO] [195][none] Iter [440/78560]	Data 0.00 (0.00)	Time 0.25 (0.25)	Sup 0.317 (0.145)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2022-12-08 19:52:31,926][    INFO] [195][none] Iter [450/78560]	Data 0.00 (0.00)	Time 0.16 (0.21)	Sup 0.208 (0.270)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2022-12-08 19:52:34,597][    INFO] [195][none] Iter [460/78560]	Data 0.00 (0.00)	Time 0.29 (0.27)	Sup 0.081 (0.184)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2022-12-08 19:52:37,560][    INFO] [195][none] Iter [470/78560]	Data 0.00 (0.00)	Time 0.30 (0.30)	Sup 0.735 (0.265)	Uns -0.000 (0.000)	Con -0.000 (0.000)	LR 0.00099
+[2022-12-08 19:52:40,434][    INFO] [195][none] Iter [480/78560]	Data 0.00 (0.00)	Time 0.28 (0.29)	Sup 0.896 (0.242)	Uns -0.000 (0.000)	Con -0.000 (0.000)	LR 0.00099
+[2022-12-08 19:52:43,062][    INFO] [195][none] Iter [490/78560]	Data 0.00 (0.00)	Time 0.16 (0.26)	Sup 0.008 (0.118)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2022-12-08 19:52:45,689][    INFO] [195][none] Iter [500/78560]	Data 0.00 (0.00)	Time 0.29 (0.26)	Sup 0.015 (0.196)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2022-12-08 19:52:48,377][    INFO] [195][none] Iter [510/78560]	Data 0.00 (0.00)	Time 0.26 (0.27)	Sup 0.016 (0.126)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2022-12-08 19:52:50,977][    INFO] [195][none] Iter [520/78560]	Data 0.00 (0.00)	Time 0.26 (0.26)	Sup 0.160 (0.258)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2022-12-08 19:52:53,441][    INFO] [195][none] Iter [530/78560]	Data 0.00 (0.00)	Time 0.17 (0.25)	Sup 0.005 (0.109)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2022-12-08 19:52:55,653][    INFO] [195][none] Iter [540/78560]	Data 0.00 (0.00)	Time 0.25 (0.22)	Sup 0.192 (0.178)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2022-12-08 19:52:58,209][    INFO] [195][none] Iter [550/78560]	Data 0.00 (0.00)	Time 0.25 (0.26)	Sup 0.191 (0.215)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2022-12-08 19:53:00,738][    INFO] [195][none] Iter [560/78560]	Data 0.00 (0.00)	Time 0.27 (0.25)	Sup 0.256 (0.177)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2022-12-08 19:53:03,279][    INFO] [195][none] Iter [570/78560]	Data 0.00 (0.00)	Time 0.23 (0.25)	Sup 0.086 (0.138)	Uns -0.000 (0.000)	Con -0.000 (0.000)	LR 0.00099
+[2022-12-08 19:53:05,351][    INFO] [195][none] Iter [580/78560]	Data 0.00 (0.00)	Time 0.15 (0.21)	Sup 0.461 (0.153)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2022-12-08 19:53:08,038][    INFO] [195][none] Iter [590/78560]	Data 0.00 (0.00)	Time 0.28 (0.27)	Sup 0.043 (0.295)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2022-12-08 19:53:10,780][    INFO] [195][none] Iter [600/78560]	Data 0.00 (0.00)	Time 0.30 (0.27)	Sup 0.305 (0.204)	Uns -0.000 (0.000)	Con -0.000 (0.000)	LR 0.00099
+[2022-12-08 19:53:13,574][    INFO] [195][none] Iter [610/78560]	Data 0.00 (0.00)	Time 0.28 (0.28)	Sup 0.461 (0.222)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2022-12-08 19:53:15,929][    INFO] [195][none] Iter [620/78560]	Data 0.00 (0.00)	Time 0.28 (0.24)	Sup 0.204 (0.294)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2022-12-08 19:53:18,337][    INFO] [195][none] Iter [630/78560]	Data 0.00 (0.00)	Time 0.26 (0.24)	Sup 0.099 (0.131)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2022-12-08 19:53:21,191][    INFO] [195][none] Iter [640/78560]	Data 0.00 (0.00)	Time 0.27 (0.29)	Sup 0.340 (0.268)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2022-12-08 19:53:23,725][    INFO] [195][none] Iter [650/78560]	Data 0.00 (0.00)	Time 0.26 (0.25)	Sup 0.040 (0.222)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2022-12-08 19:53:25,983][    INFO] [195][none] Iter [660/78560]	Data 0.00 (0.00)	Time 0.30 (0.23)	Sup 0.007 (0.102)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2022-12-08 19:53:28,714][    INFO] [195][none] Iter [670/78560]	Data 0.00 (0.00)	Time 0.30 (0.27)	Sup 0.006 (0.199)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2022-12-08 19:53:31,607][    INFO] [195][none] Iter [680/78560]	Data 0.00 (0.00)	Time 0.28 (0.29)	Sup 0.816 (0.317)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2022-12-08 19:53:34,439][    INFO] [195][none] Iter [690/78560]	Data 0.00 (0.00)	Time 0.27 (0.28)	Sup 0.063 (0.150)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2022-12-08 19:53:36,879][    INFO] [195][none] Iter [700/78560]	Data 0.00 (0.00)	Time 0.18 (0.24)	Sup 0.205 (0.072)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2022-12-08 19:53:39,586][    INFO] [195][none] Iter [710/78560]	Data 0.00 (0.00)	Time 0.24 (0.27)	Sup 0.101 (0.113)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2022-12-08 19:53:42,131][    INFO] [195][none] Iter [720/78560]	Data 0.00 (0.00)	Time 0.24 (0.25)	Sup 0.635 (0.249)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2022-12-08 19:53:44,623][    INFO] [195][none] Iter [730/78560]	Data 0.00 (0.00)	Time 0.25 (0.25)	Sup 0.095 (0.103)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2022-12-08 19:53:47,028][    INFO] [195][none] Iter [740/78560]	Data 0.00 (0.00)	Time 0.24 (0.24)	Sup 0.056 (0.200)	Uns -0.000 (0.000)	Con -0.000 (0.000)	LR 0.00099
+[2022-12-08 19:53:49,490][    INFO] [195][none] Iter [750/78560]	Data 0.00 (0.00)	Time 0.26 (0.25)	Sup 0.111 (0.138)	Uns -0.000 (0.000)	Con -0.000 (0.000)	LR 0.00099
+[2022-12-08 19:53:52,290][    INFO] [195][none] Iter [760/78560]	Data 0.00 (0.00)	Time 0.26 (0.28)	Sup 0.118 (0.145)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2022-12-08 19:53:54,961][    INFO] [195][none] Iter [770/78560]	Data 0.00 (0.00)	Time 0.25 (0.27)	Sup 0.012 (0.186)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2022-12-08 19:53:57,188][    INFO] [195][none] Iter [780/78560]	Data 0.00 (0.00)	Time 0.18 (0.22)	Sup 0.247 (0.242)	Uns -0.000 (0.000)	Con -0.000 (0.000)	LR 0.00099
+[2022-12-08 19:54:00,065][    INFO] [195][none] Iter [790/78560]	Data 0.00 (0.00)	Time 0.24 (0.29)	Sup 0.715 (0.229)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2022-12-08 19:54:02,618][    INFO] [195][none] Iter [800/78560]	Data 0.00 (0.00)	Time 0.24 (0.26)	Sup 0.529 (0.204)	Uns -0.000 (0.000)	Con -0.000 (0.000)	LR 0.00099
+[2022-12-08 19:54:05,198][    INFO] [195][none] Iter [810/78560]	Data 0.00 (0.00)	Time 0.25 (0.26)	Sup 0.009 (0.121)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2022-12-08 19:54:07,581][    INFO] [195][none] Iter [820/78560]	Data 0.00 (0.00)	Time 0.19 (0.24)	Sup 0.004 (0.288)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2022-12-08 19:54:10,356][    INFO] [195][none] Iter [830/78560]	Data 0.00 (0.00)	Time 0.29 (0.28)	Sup 0.045 (0.345)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2022-12-08 19:54:13,237][    INFO] [195][none] Iter [840/78560]	Data 0.00 (0.00)	Time 0.29 (0.29)	Sup 0.037 (0.065)	Uns -0.000 (0.000)	Con -0.000 (0.000)	LR 0.00099
+[2022-12-08 19:54:16,106][    INFO] [195][none] Iter [850/78560]	Data 0.00 (0.00)	Time 0.30 (0.29)	Sup 0.516 (0.209)	Uns -0.000 (0.000)	Con -0.000 (0.000)	LR 0.00099
+[2022-12-08 19:54:18,864][    INFO] [195][none] Iter [860/78560]	Data 0.00 (0.00)	Time 0.16 (0.28)	Sup 0.015 (0.107)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2022-12-08 19:54:21,192][    INFO] [195][none] Iter [870/78560]	Data 0.00 (0.00)	Time 0.26 (0.23)	Sup 0.032 (0.235)	Uns -0.000 (0.000)	Con -0.000 (0.000)	LR 0.00099
+[2022-12-08 19:54:24,068][    INFO] [195][none] Iter [880/78560]	Data 0.00 (0.00)	Time 0.29 (0.29)	Sup 0.289 (0.156)	Uns -0.000 (0.000)	Con -0.000 (0.000)	LR 0.00099
+[2022-12-08 19:54:26,706][    INFO] [195][none] Iter [890/78560]	Data 0.00 (0.00)	Time 0.24 (0.26)	Sup 0.384 (0.191)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2022-12-08 19:54:29,246][    INFO] [195][none] Iter [900/78560]	Data 0.00 (0.00)	Time 0.24 (0.25)	Sup 0.013 (0.152)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2022-12-08 19:54:31,539][    INFO] [195][none] Iter [910/78560]	Data 0.00 (0.00)	Time 0.22 (0.23)	Sup 0.020 (0.148)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2022-12-08 19:54:34,135][    INFO] [195][none] Iter [920/78560]	Data 0.00 (0.00)	Time 0.25 (0.26)	Sup 0.319 (0.213)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2022-12-08 19:54:36,649][    INFO] [195][none] Iter [930/78560]	Data 0.00 (0.00)	Time 0.25 (0.25)	Sup 0.058 (0.226)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2022-12-08 19:54:39,237][    INFO] [195][none] Iter [940/78560]	Data 0.00 (0.00)	Time 0.25 (0.26)	Sup 1.043 (0.286)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2022-12-08 19:54:41,515][    INFO] [195][none] Iter [950/78560]	Data 0.00 (0.00)	Time 0.17 (0.23)	Sup 0.267 (0.158)	Uns -0.000 (0.000)	Con -0.000 (0.000)	LR 0.00099
+[2022-12-08 19:54:44,682][    INFO] [195][none] Iter [960/78560]	Data 0.00 (0.00)	Time 0.29 (0.32)	Sup 0.465 (0.184)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2022-12-08 19:54:47,569][    INFO] [195][none] Iter [970/78560]	Data 0.00 (0.00)	Time 0.25 (0.29)	Sup 0.017 (0.113)	Uns -0.000 (0.000)	Con -0.000 (0.000)	LR 0.00099
+[2022-12-08 19:54:50,464][    INFO] [195][none] Iter [980/78560]	Data 0.00 (0.00)	Time 0.28 (0.29)	Sup 0.127 (0.178)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2022-12-08 19:54:50,878][    INFO] start evaluation
+[2022-12-08 19:54:56,656][    INFO]  * class [0] IoU 88.34
+[2022-12-08 19:54:56,656][    INFO]  * class [1] IoU 13.66
+[2022-12-08 19:54:56,656][    INFO]  * class [2] IoU 0.19
+[2022-12-08 19:54:56,656][    INFO]  * class [3] IoU 39.40
+[2022-12-08 19:54:56,656][    INFO]  * class [4] IoU 39.66
+[2022-12-08 19:54:56,656][    INFO]  * class [5] IoU 62.34
+[2022-12-08 19:54:56,656][    INFO]  * class [6] IoU 66.70
+[2022-12-08 19:54:56,656][    INFO]  * class [7] IoU 2.07
+[2022-12-08 19:54:56,656][    INFO]  * class [8] IoU 90.30
+[2022-12-08 19:54:56,656][    INFO]  * epoch 0 mIoU 44.74
+[2022-12-08 19:55:04,994][    INFO] [31m * Currently, the best val result is: 44.74[0m
+Traceback (most recent call last):
+  File "../../../../train_semi.py", line 477, in <module>
+    main()
+  File "../../../../train_semi.py", line 144, in main
+    train( model, model_teacher, optimizer,lr_scheduler,sup_loss_fn, train_loader_sup,train_loader_unsup,epoch,tb_logger,logger,memobank,queue_ptrlis,queue_size,)
+  File "../../../../train_semi.py", line 316, in train
+    label_l_small = F.interpolate(label_onehot(label_l, cfg["net"]["num_classes"]),size=pred_all.shape[2:], mode="nearest", )
+  File "/home/jidian/sdb1/jinlei/U2PL/u2pl/utils/utils.py", line 56, in label_onehot
+    outputs.scatter_(0, inputs_temp.unsqueeze(1), 1.0)
+RuntimeError: invalid argument 4: Index tensor must have same size as output tensor apart from the specified dimension at /pytorch/aten/src/THC/generic/THCTensorScatterGather.cu:328
+Traceback (most recent call last):
+  File "/home/jidian/anaconda3/envs/uda/lib/python3.6/runpy.py", line 193, in _run_module_as_main
+    "__main__", mod_spec)
+  File "/home/jidian/anaconda3/envs/uda/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/home/jidian/anaconda3/envs/uda/lib/python3.6/site-packages/torch/distributed/launch.py", line 263, in <module>
+    main()
+  File "/home/jidian/anaconda3/envs/uda/lib/python3.6/site-packages/torch/distributed/launch.py", line 259, in main
+    cmd=cmd)
+subprocess.CalledProcessError: Command '['/home/jidian/anaconda3/envs/uda/bin/python', '-u', '../../../../train_semi.py', '--local_rank=0', '--config=config1.yaml', '--seed', '2', '--port', '1255']' returned non-zero exit status 1.

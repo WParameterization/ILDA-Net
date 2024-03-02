@@ -1,0 +1,200 @@
+Using TensorFlow backend.
+[2023-01-07 14:42:57,801][    INFO] {'criterion': {'kwargs': {'use_weight': False}, 'type': 'CELoss'},
+ 'dataset': {'batch_size': 2,
+             'ignore_label': 255,
+             'mean': [123.675, 116.28, 103.53],
+             'n_sup': 195,
+             'noise_std': 0.1,
+             'std': [58.395, 57.12, 57.375],
+             'train': {'GaussianBlur': False,
+                       'crop': {'size': [256, 256], 'type': 'rand'},
+                       'data_list': '../../../../data/splits/pascal/1464/labeled.txt',
+                       'data_root': '../../../../data/VOC2012',
+                       'flip': True,
+                       'rand_resize': [0.5, 2.0]},
+             'type': 'pascal_semi',
+             'val': {'crop': {'size': [256, 256], 'type': 'center'},
+                     'data_list': '../../../../data/splits/pascal/val.txt',
+                     'data_root': '../../../../data/VOC2012'},
+             'workers': 1},
+ 'exp_path': '',
+ 'net': {'bo': {'type': 'u2pl.models.model_helper.Bottleneck'},
+         'decoder': {'type': 'u2pl.models.model_helper.Decoder'},
+         'ema_decay': 0.99,
+         'encoder': {'type': 'u2pl.models.model_helper.Encoder'},
+         'fc_inch': '121,',
+         'filters': '32,',
+         'in_channels': '3,',
+         'n_class': '9,',
+         'num_classes': 9,
+         'sync_bn': True},
+ 'save_path': 'checkpoints101_rgb',
+ 'saver': {'pretrain': '', 'snapshot_dir': 'checkpoints101_rgb'},
+ 'trainer': {'contrastive': {'current_class_negative_threshold': 1,
+                             'current_class_threshold': 0.3,
+                             'high_rank': 20,
+                             'low_entropy_threshold': 20,
+                             'low_rank': 3,
+                             'negative_high_entropy': True,
+                             'num_negatives': 101,
+                             'num_queries': 256,
+                             'temperature': 0.5,
+                             'unsupervised_entropy_ignore': 80},
+             'epochs': 80,
+             'eval_on': True,
+             'lr_scheduler': {'kwargs': {'power': 0.9}, 'mode': 'poly'},
+             'optimizer': {'kwargs': {'lr': 0.001,
+                                      'momentum': 0.9,
+                                      'weight_decay': 0.0001},
+                           'type': 'SGD'},
+             'unsupervised': {'TTA': False,
+                              'apply_aug': 'cutmix',
+                              'drop_percent': 80}}}
+set random seed to 2
+[2023-01-07 14:43:03,091][    INFO] # samples: 693
+[2023-01-07 14:43:03,094][    INFO] # samples: 207
+[2023-01-07 14:43:03,095][    INFO] Get loader Done...
+[2023-01-07 14:43:03,393][    INFO] The kwargs for lr scheduler: 0.9
+[W reducer.cpp:1050] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters. This flag results in an extra traversal of the autograd graph every iteration, which can adversely affect performance. If your model indeed never has any unused parameters, consider turning this flag off. Note that this warning may be a false positive your model has flow control causing later iterations to have unused parameters. (function operator())
+[2023-01-07 14:43:07,946][    INFO] [195][none] Iter [0/78560]	Data 0.00 (0.00)	Time 4.37 (4.37)	Sup 2.520 (2.520)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-01-07 14:43:10,652][    INFO] [195][none] Iter [10/78560]	Data 0.00 (0.00)	Time 0.25 (0.27)	Sup 0.885 (1.573)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-01-07 14:43:13,203][    INFO] [195][none] Iter [20/78560]	Data 0.00 (0.00)	Time 0.26 (0.26)	Sup 0.410 (0.871)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-01-07 14:43:15,804][    INFO] [195][none] Iter [30/78560]	Data 0.00 (0.00)	Time 0.26 (0.26)	Sup 0.200 (0.503)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-01-07 14:43:18,444][    INFO] [195][none] Iter [40/78560]	Data 0.00 (0.00)	Time 0.26 (0.26)	Sup 0.195 (0.363)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-01-07 14:43:21,058][    INFO] [195][none] Iter [50/78560]	Data 0.00 (0.00)	Time 0.26 (0.26)	Sup 0.090 (0.392)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-01-07 14:43:23,645][    INFO] [195][none] Iter [60/78560]	Data 0.00 (0.00)	Time 0.26 (0.26)	Sup 0.390 (0.363)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-01-07 14:43:26,210][    INFO] [195][none] Iter [70/78560]	Data 0.00 (0.00)	Time 0.26 (0.26)	Sup 0.091 (0.288)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-01-07 14:43:28,756][    INFO] [195][none] Iter [80/78560]	Data 0.00 (0.00)	Time 0.26 (0.25)	Sup 0.317 (0.303)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-01-07 14:43:31,303][    INFO] [195][none] Iter [90/78560]	Data 0.00 (0.00)	Time 0.25 (0.25)	Sup 0.209 (0.311)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-01-07 14:43:33,866][    INFO] [195][none] Iter [100/78560]	Data 0.00 (0.00)	Time 0.26 (0.26)	Sup 0.259 (0.233)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-01-07 14:43:36,428][    INFO] [195][none] Iter [110/78560]	Data 0.00 (0.00)	Time 0.26 (0.26)	Sup 0.406 (0.243)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-01-07 14:43:39,006][    INFO] [195][none] Iter [120/78560]	Data 0.00 (0.00)	Time 0.26 (0.26)	Sup 0.150 (0.296)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-01-07 14:43:41,570][    INFO] [195][none] Iter [130/78560]	Data 0.00 (0.00)	Time 0.25 (0.26)	Sup 0.336 (0.230)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-01-07 14:43:44,140][    INFO] [195][none] Iter [140/78560]	Data 0.00 (0.00)	Time 0.26 (0.26)	Sup 0.684 (0.252)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-01-07 14:43:46,700][    INFO] [195][none] Iter [150/78560]	Data 0.00 (0.00)	Time 0.25 (0.26)	Sup 0.285 (0.152)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-01-07 14:43:49,262][    INFO] [195][none] Iter [160/78560]	Data 0.00 (0.00)	Time 0.25 (0.26)	Sup 0.174 (0.205)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-01-07 14:43:51,834][    INFO] [195][none] Iter [170/78560]	Data 0.00 (0.00)	Time 0.26 (0.26)	Sup 1.038 (0.259)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-01-07 14:43:54,387][    INFO] [195][none] Iter [180/78560]	Data 0.00 (0.00)	Time 0.25 (0.26)	Sup 0.333 (0.187)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-01-07 14:43:56,939][    INFO] [195][none] Iter [190/78560]	Data 0.00 (0.00)	Time 0.26 (0.26)	Sup 0.165 (0.268)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-01-07 14:43:59,508][    INFO] [195][none] Iter [200/78560]	Data 0.00 (0.00)	Time 0.25 (0.26)	Sup 0.136 (0.269)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-01-07 14:44:02,118][    INFO] [195][none] Iter [210/78560]	Data 0.00 (0.00)	Time 0.26 (0.26)	Sup 0.185 (0.191)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-01-07 14:44:04,599][    INFO] [195][none] Iter [220/78560]	Data 0.00 (0.00)	Time 0.25 (0.25)	Sup 0.235 (0.263)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-01-07 14:44:07,151][    INFO] [195][none] Iter [230/78560]	Data 0.00 (0.00)	Time 0.26 (0.26)	Sup 0.155 (0.140)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-01-07 14:44:09,723][    INFO] [195][none] Iter [240/78560]	Data 0.00 (0.00)	Time 0.26 (0.26)	Sup 0.349 (0.184)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-01-07 14:44:12,286][    INFO] [195][none] Iter [250/78560]	Data 0.00 (0.00)	Time 0.25 (0.26)	Sup 0.424 (0.201)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-01-07 14:44:14,869][    INFO] [195][none] Iter [260/78560]	Data 0.00 (0.00)	Time 0.26 (0.26)	Sup 0.156 (0.280)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-01-07 14:44:17,465][    INFO] [195][none] Iter [270/78560]	Data 0.00 (0.00)	Time 0.26 (0.26)	Sup 0.325 (0.170)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-01-07 14:44:20,019][    INFO] [195][none] Iter [280/78560]	Data 0.00 (0.00)	Time 0.26 (0.26)	Sup 0.383 (0.256)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-01-07 14:44:22,579][    INFO] [195][none] Iter [290/78560]	Data 0.00 (0.00)	Time 0.26 (0.26)	Sup 0.092 (0.173)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-01-07 14:44:25,134][    INFO] [195][none] Iter [300/78560]	Data 0.00 (0.00)	Time 0.26 (0.26)	Sup 0.143 (0.157)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-01-07 14:44:27,683][    INFO] [195][none] Iter [310/78560]	Data 0.00 (0.00)	Time 0.25 (0.25)	Sup 0.364 (0.184)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-01-07 14:44:30,150][    INFO] [195][none] Iter [320/78560]	Data 0.00 (0.00)	Time 0.25 (0.25)	Sup 0.342 (0.210)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-01-07 14:44:32,611][    INFO] [195][none] Iter [330/78560]	Data 0.00 (0.00)	Time 0.25 (0.25)	Sup 0.115 (0.165)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-01-07 14:44:35,075][    INFO] [195][none] Iter [340/78560]	Data 0.00 (0.00)	Time 0.25 (0.25)	Sup 0.046 (0.140)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-01-07 14:44:37,658][    INFO] [195][none] Iter [350/78560]	Data 0.00 (0.00)	Time 0.26 (0.26)	Sup 0.669 (0.219)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-01-07 14:44:40,232][    INFO] [195][none] Iter [360/78560]	Data 0.00 (0.00)	Time 0.26 (0.26)	Sup 0.147 (0.240)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-01-07 14:44:42,797][    INFO] [195][none] Iter [370/78560]	Data 0.00 (0.00)	Time 0.26 (0.26)	Sup 0.386 (0.122)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-01-07 14:44:45,357][    INFO] [195][none] Iter [380/78560]	Data 0.00 (0.00)	Time 0.26 (0.26)	Sup 0.169 (0.201)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-01-07 14:44:47,931][    INFO] [195][none] Iter [390/78560]	Data 0.00 (0.00)	Time 0.26 (0.26)	Sup 0.052 (0.138)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-01-07 14:44:50,512][    INFO] [195][none] Iter [400/78560]	Data 0.00 (0.00)	Time 0.26 (0.26)	Sup 0.094 (0.155)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-01-07 14:44:53,081][    INFO] [195][none] Iter [410/78560]	Data 0.00 (0.00)	Time 0.26 (0.26)	Sup 0.151 (0.223)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-01-07 14:44:55,643][    INFO] [195][none] Iter [420/78560]	Data 0.00 (0.00)	Time 0.25 (0.26)	Sup 0.199 (0.198)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-01-07 14:44:58,207][    INFO] [195][none] Iter [430/78560]	Data 0.00 (0.00)	Time 0.26 (0.26)	Sup 0.256 (0.148)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-01-07 14:45:00,769][    INFO] [195][none] Iter [440/78560]	Data 0.00 (0.00)	Time 0.26 (0.26)	Sup 0.174 (0.160)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2023-01-07 14:45:03,300][    INFO] [195][none] Iter [450/78560]	Data 0.00 (0.00)	Time 0.25 (0.25)	Sup 0.109 (0.153)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2023-01-07 14:45:05,784][    INFO] [195][none] Iter [460/78560]	Data 0.00 (0.00)	Time 0.25 (0.25)	Sup 0.291 (0.157)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2023-01-07 14:45:08,260][    INFO] [195][none] Iter [470/78560]	Data 0.00 (0.00)	Time 0.25 (0.25)	Sup 0.222 (0.226)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2023-01-07 14:45:10,746][    INFO] [195][none] Iter [480/78560]	Data 0.00 (0.00)	Time 0.25 (0.25)	Sup 0.127 (0.152)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2023-01-07 14:45:13,217][    INFO] [195][none] Iter [490/78560]	Data 0.00 (0.00)	Time 0.25 (0.25)	Sup 0.197 (0.129)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2023-01-07 14:45:15,685][    INFO] [195][none] Iter [500/78560]	Data 0.00 (0.00)	Time 0.24 (0.25)	Sup 0.150 (0.193)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2023-01-07 14:45:18,194][    INFO] [195][none] Iter [510/78560]	Data 0.00 (0.00)	Time 0.25 (0.25)	Sup 0.418 (0.246)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2023-01-07 14:45:20,678][    INFO] [195][none] Iter [520/78560]	Data 0.00 (0.00)	Time 0.25 (0.25)	Sup 0.085 (0.129)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2023-01-07 14:45:23,146][    INFO] [195][none] Iter [530/78560]	Data 0.00 (0.00)	Time 0.25 (0.25)	Sup 0.055 (0.123)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2023-01-07 14:45:25,621][    INFO] [195][none] Iter [540/78560]	Data 0.00 (0.00)	Time 0.24 (0.25)	Sup 0.103 (0.199)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2023-01-07 14:45:28,129][    INFO] [195][none] Iter [550/78560]	Data 0.00 (0.00)	Time 0.26 (0.25)	Sup 0.070 (0.120)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2023-01-07 14:45:30,709][    INFO] [195][none] Iter [560/78560]	Data 0.00 (0.00)	Time 0.26 (0.26)	Sup 0.113 (0.116)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2023-01-07 14:45:33,270][    INFO] [195][none] Iter [570/78560]	Data 0.00 (0.00)	Time 0.26 (0.26)	Sup 0.382 (0.158)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2023-01-07 14:45:35,831][    INFO] [195][none] Iter [580/78560]	Data 0.00 (0.00)	Time 0.26 (0.26)	Sup 0.059 (0.174)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2023-01-07 14:45:38,396][    INFO] [195][none] Iter [590/78560]	Data 0.00 (0.00)	Time 0.25 (0.26)	Sup 0.343 (0.211)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2023-01-07 14:45:40,990][    INFO] [195][none] Iter [600/78560]	Data 0.00 (0.00)	Time 0.26 (0.26)	Sup 0.157 (0.156)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2023-01-07 14:45:43,560][    INFO] [195][none] Iter [610/78560]	Data 0.00 (0.00)	Time 0.25 (0.26)	Sup 0.090 (0.121)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2023-01-07 14:45:46,110][    INFO] [195][none] Iter [620/78560]	Data 0.00 (0.00)	Time 0.26 (0.25)	Sup 0.065 (0.121)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2023-01-07 14:45:48,672][    INFO] [195][none] Iter [630/78560]	Data 0.00 (0.00)	Time 0.26 (0.26)	Sup 0.122 (0.166)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2023-01-07 14:45:51,237][    INFO] [195][none] Iter [640/78560]	Data 0.00 (0.00)	Time 0.25 (0.26)	Sup 0.075 (0.191)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2023-01-07 14:45:53,803][    INFO] [195][none] Iter [650/78560]	Data 0.00 (0.00)	Time 0.26 (0.26)	Sup 0.223 (0.164)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2023-01-07 14:45:56,380][    INFO] [195][none] Iter [660/78560]	Data 0.00 (0.00)	Time 0.26 (0.26)	Sup 0.089 (0.105)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2023-01-07 14:45:58,963][    INFO] [195][none] Iter [670/78560]	Data 0.00 (0.00)	Time 0.25 (0.26)	Sup 0.055 (0.139)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2023-01-07 14:46:01,538][    INFO] [195][none] Iter [680/78560]	Data 0.00 (0.00)	Time 0.26 (0.26)	Sup 0.085 (0.144)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2023-01-07 14:46:04,117][    INFO] [195][none] Iter [690/78560]	Data 0.00 (0.00)	Time 0.26 (0.26)	Sup 0.082 (0.100)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2023-01-07 14:46:06,681][    INFO] [195][none] Iter [700/78560]	Data 0.00 (0.00)	Time 0.25 (0.26)	Sup 0.104 (0.158)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2023-01-07 14:46:09,249][    INFO] [195][none] Iter [710/78560]	Data 0.00 (0.00)	Time 0.26 (0.26)	Sup 0.037 (0.100)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2023-01-07 14:46:11,834][    INFO] [195][none] Iter [720/78560]	Data 0.00 (0.00)	Time 0.26 (0.26)	Sup 0.176 (0.152)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2023-01-07 14:46:14,383][    INFO] [195][none] Iter [730/78560]	Data 0.00 (0.00)	Time 0.25 (0.25)	Sup 0.051 (0.153)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2023-01-07 14:46:16,872][    INFO] [195][none] Iter [740/78560]	Data 0.00 (0.00)	Time 0.25 (0.25)	Sup 0.232 (0.192)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2023-01-07 14:46:19,376][    INFO] [195][none] Iter [750/78560]	Data 0.00 (0.00)	Time 0.25 (0.25)	Sup 0.098 (0.108)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2023-01-07 14:46:21,888][    INFO] [195][none] Iter [760/78560]	Data 0.00 (0.00)	Time 0.25 (0.25)	Sup 0.085 (0.103)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2023-01-07 14:46:24,437][    INFO] [195][none] Iter [770/78560]	Data 0.00 (0.00)	Time 0.25 (0.25)	Sup 0.431 (0.170)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2023-01-07 14:46:27,022][    INFO] [195][none] Iter [780/78560]	Data 0.00 (0.00)	Time 0.26 (0.26)	Sup 0.104 (0.170)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2023-01-07 14:46:29,670][    INFO] [195][none] Iter [790/78560]	Data 0.00 (0.00)	Time 0.28 (0.26)	Sup 0.258 (0.155)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2023-01-07 14:46:32,370][    INFO] [195][none] Iter [800/78560]	Data 0.00 (0.00)	Time 0.27 (0.27)	Sup 0.208 (0.160)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2023-01-07 14:46:35,062][    INFO] [195][none] Iter [810/78560]	Data 0.00 (0.00)	Time 0.27 (0.27)	Sup 0.115 (0.175)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2023-01-07 14:46:37,687][    INFO] [195][none] Iter [820/78560]	Data 0.00 (0.00)	Time 0.25 (0.26)	Sup 0.174 (0.127)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2023-01-07 14:46:40,270][    INFO] [195][none] Iter [830/78560]	Data 0.00 (0.00)	Time 0.26 (0.26)	Sup 0.099 (0.099)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2023-01-07 14:46:42,848][    INFO] [195][none] Iter [840/78560]	Data 0.00 (0.00)	Time 0.27 (0.26)	Sup 0.209 (0.140)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2023-01-07 14:46:45,557][    INFO] [195][none] Iter [850/78560]	Data 0.00 (0.00)	Time 0.27 (0.27)	Sup 0.105 (0.138)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2023-01-07 14:46:48,219][    INFO] [195][none] Iter [860/78560]	Data 0.00 (0.00)	Time 0.26 (0.27)	Sup 0.026 (0.125)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2023-01-07 14:46:50,799][    INFO] [195][none] Iter [870/78560]	Data 0.00 (0.00)	Time 0.26 (0.26)	Sup 0.095 (0.160)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2023-01-07 14:46:53,369][    INFO] [195][none] Iter [880/78560]	Data 0.00 (0.00)	Time 0.25 (0.26)	Sup 0.146 (0.144)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2023-01-07 14:46:55,944][    INFO] [195][none] Iter [890/78560]	Data 0.00 (0.00)	Time 0.26 (0.26)	Sup 0.098 (0.149)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2023-01-07 14:46:58,517][    INFO] [195][none] Iter [900/78560]	Data 0.00 (0.00)	Time 0.27 (0.26)	Sup 0.182 (0.087)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2023-01-07 14:47:01,095][    INFO] [195][none] Iter [910/78560]	Data 0.00 (0.00)	Time 0.25 (0.26)	Sup 0.079 (0.100)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2023-01-07 14:47:03,671][    INFO] [195][none] Iter [920/78560]	Data 0.00 (0.00)	Time 0.26 (0.26)	Sup 0.130 (0.152)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2023-01-07 14:47:06,244][    INFO] [195][none] Iter [930/78560]	Data 0.00 (0.00)	Time 0.26 (0.26)	Sup 0.039 (0.123)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2023-01-07 14:47:08,813][    INFO] [195][none] Iter [940/78560]	Data 0.00 (0.00)	Time 0.26 (0.26)	Sup 0.173 (0.101)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2023-01-07 14:47:11,377][    INFO] [195][none] Iter [950/78560]	Data 0.00 (0.00)	Time 0.26 (0.26)	Sup 0.056 (0.134)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2023-01-07 14:47:13,953][    INFO] [195][none] Iter [960/78560]	Data 0.00 (0.00)	Time 0.26 (0.26)	Sup 0.236 (0.172)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2023-01-07 14:47:16,507][    INFO] [195][none] Iter [970/78560]	Data 0.00 (0.00)	Time 0.25 (0.26)	Sup 0.098 (0.131)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2023-01-07 14:47:19,080][    INFO] [195][none] Iter [980/78560]	Data 0.00 (0.00)	Time 0.25 (0.26)	Sup 0.097 (0.162)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2023-01-07 14:47:19,452][    INFO] start evaluation
+Traceback (most recent call last):
+  File "../../../../train_semi_transformer.py", line 514, in <module>
+    main()
+  File "../../../../train_semi_transformer.py", line 185, in main
+    prec = validate(model, val_loader, epoch, logger)
+  File "../../../../train_semi_transformer.py", line 473, in validate
+    for step, batch in enumerate(data_loader):
+  File "/root/miniconda3/envs/uda/lib/python3.7/site-packages/torch/utils/data/dataloader.py", line 517, in __next__
+    data = self._next_data()
+  File "/root/miniconda3/envs/uda/lib/python3.7/site-packages/torch/utils/data/dataloader.py", line 1199, in _next_data
+    return self._process_data(data)
+  File "/root/miniconda3/envs/uda/lib/python3.7/site-packages/torch/utils/data/dataloader.py", line 1225, in _process_data
+    data.reraise()
+  File "/root/miniconda3/envs/uda/lib/python3.7/site-packages/torch/_utils.py", line 429, in reraise
+    raise self.exc_type(msg)
+FileNotFoundError: Caught FileNotFoundError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/root/miniconda3/envs/uda/lib/python3.7/site-packages/torch/utils/data/_utils/worker.py", line 202, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/root/miniconda3/envs/uda/lib/python3.7/site-packages/torch/utils/data/_utils/fetch.py", line 44, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/miniconda3/envs/uda/lib/python3.7/site-packages/torch/utils/data/_utils/fetch.py", line 44, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/autodl-tmp/U2PL/u2pl/dataset/pascal_voc.py", line 40, in __getitem__
+    label = self.img_loader(label_path, "L")
+  File "/root/autodl-tmp/U2PL/u2pl/dataset/base.py", line 44, in img_loader
+    with open(path, "rb") as f:
+FileNotFoundError: [Errno 2] No such file or directory: '../../../../data/VOC2012/SegmentationClass/0278.png'
+
+Traceback (most recent call last):
+  File "/root/miniconda3/envs/uda/lib/python3.7/runpy.py", line 193, in _run_module_as_main
+    "__main__", mod_spec)
+  File "/root/miniconda3/envs/uda/lib/python3.7/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/root/miniconda3/envs/uda/lib/python3.7/site-packages/torch/distributed/launch.py", line 340, in <module>
+    main()
+  File "/root/miniconda3/envs/uda/lib/python3.7/site-packages/torch/distributed/launch.py", line 326, in main
+    sigkill_handler(signal.SIGTERM, None)  # not coming back
+  File "/root/miniconda3/envs/uda/lib/python3.7/site-packages/torch/distributed/launch.py", line 301, in sigkill_handler
+    raise subprocess.CalledProcessError(returncode=last_return_code, cmd=cmd)
+subprocess.CalledProcessError: Command '['/root/miniconda3/envs/uda/bin/python', '-u', '../../../../train_semi_transformer.py', '--local_rank=0', '--config=config.yaml', '--seed', '2', '--port', '1254']' returned non-zero exit status 1.
+Killing subprocess 36998

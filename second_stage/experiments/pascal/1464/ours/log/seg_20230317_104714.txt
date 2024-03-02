@@ -1,0 +1,73 @@
+Using TensorFlow backend.
+[2023-03-17 10:47:21,297][    INFO] {'criterion': {'kwargs': {'use_weight': False}, 'type': 'CELoss'},
+ 'dataset': {'batch_size': 10,
+             'ignore_label': 255,
+             'mean': [123.675, 116.28, 103.53],
+             'n_sup': 195,
+             'noise_std': 0.1,
+             'std': [58.395, 57.12, 57.375],
+             'train': {'GaussianBlur': False,
+                       'crop': {'size': [256, 256], 'type': 'rand'},
+                       'data_list': '../../../../data/splits/pascal/1464/labeled.txt',
+                       'data_root': '../../../../data/VOC2012',
+                       'flip': True,
+                       'rand_resize': [0.5, 2.0]},
+             'type': 'pascal_semi',
+             'val': {'crop': {'size': [256, 256], 'type': 'center'},
+                     'data_list': '../../../../data/splits/pascal/val.txt',
+                     'data_root': '../../../../data/VOC2012'},
+             'workers': 1},
+ 'exp_path': '',
+ 'net': {'bo': {'type': 'u2pl.models.model_helper.Bottleneck'},
+         'decoder': {'type': 'u2pl.models.model_helper.Decoder'},
+         'ema_decay': 0.99,
+         'encoder': {'type': 'u2pl.models.model_helper.Encoder'},
+         'fc_inch': '121,',
+         'filters': '32,',
+         'in_channels': '3,',
+         'n_class': '9,',
+         'num_classes': 9,
+         'sync_bn': True},
+ 'save_path': 'checkpoints101_rgb',
+ 'saver': {'pretrain': '', 'snapshot_dir': 'checkpoints101_rgb'},
+ 'trainer': {'contrastive': {'current_class_negative_threshold': 1,
+                             'current_class_threshold': 0.3,
+                             'high_rank': 20,
+                             'low_entropy_threshold': 20,
+                             'low_rank': 3,
+                             'negative_high_entropy': True,
+                             'num_negatives': 101,
+                             'num_queries': 256,
+                             'temperature': 0.5,
+                             'unsupervised_entropy_ignore': 80},
+             'epochs': 80,
+             'eval_on': True,
+             'lr_scheduler': {'kwargs': {'power': 0.9}, 'mode': 'poly'},
+             'optimizer': {'kwargs': {'lr': 0.001,
+                                      'momentum': 0.9,
+                                      'weight_decay': 0.0001},
+                           'type': 'SGD'},
+             'unsupervised': {'TTA': False,
+                              'apply_aug': 'cutmix',
+                              'drop_percent': 80}}}
+set random seed to 2
+[2023-03-17 10:47:23,498][    INFO] # samples: 693
+[2023-03-17 10:47:23,500][    INFO] # samples: 207
+[2023-03-17 10:47:23,500][    INFO] Get loader Done...
+[2023-03-17 10:47:24,934][    INFO] The kwargs for lr scheduler: 0.9
+[2023-03-17 10:47:28,826][    INFO] [195][none] Iter [0/15680]	Data 0.00 (0.00)	Time 3.78 (3.78)	Sup 2.917 (2.917)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-03-17 10:47:32,925][    INFO] [195][none] Iter [10/15680]	Data 0.00 (0.00)	Time 0.41 (0.41)	Sup 0.804 (1.783)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-03-17 10:47:37,006][    INFO] [195][none] Iter [20/15680]	Data 0.00 (0.00)	Time 0.41 (0.41)	Sup 0.577 (0.658)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-03-17 10:47:41,100][    INFO] [195][none] Iter [30/15680]	Data 0.00 (0.00)	Time 0.41 (0.41)	Sup 0.430 (0.524)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-03-17 10:47:45,193][    INFO] [195][none] Iter [40/15680]	Data 0.00 (0.00)	Time 0.41 (0.41)	Sup 0.345 (0.387)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-03-17 10:47:49,291][    INFO] [195][none] Iter [50/15680]	Data 0.00 (0.00)	Time 0.41 (0.41)	Sup 0.189 (0.316)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-03-17 10:47:53,392][    INFO] [195][none] Iter [60/15680]	Data 0.00 (0.00)	Time 0.41 (0.41)	Sup 0.286 (0.296)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-03-17 10:47:57,498][    INFO] [195][none] Iter [70/15680]	Data 0.00 (0.00)	Time 0.41 (0.41)	Sup 0.180 (0.279)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-03-17 10:48:01,607][    INFO] [195][none] Iter [80/15680]	Data 0.00 (0.00)	Time 0.41 (0.41)	Sup 0.379 (0.246)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-03-17 10:48:05,697][    INFO] [195][none] Iter [90/15680]	Data 0.00 (0.00)	Time 0.41 (0.41)	Sup 0.285 (0.246)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2023-03-17 10:48:09,785][    INFO] [195][none] Iter [100/15680]	Data 0.00 (0.00)	Time 0.41 (0.41)	Sup 0.299 (0.263)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2023-03-17 10:48:13,874][    INFO] [195][none] Iter [110/15680]	Data 0.00 (0.00)	Time 0.41 (0.41)	Sup 0.521 (0.242)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2023-03-17 10:48:17,963][    INFO] [195][none] Iter [120/15680]	Data 0.00 (0.00)	Time 0.41 (0.41)	Sup 0.138 (0.211)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2023-03-17 10:48:22,051][    INFO] [195][none] Iter [130/15680]	Data 0.00 (0.00)	Time 0.41 (0.41)	Sup 0.269 (0.206)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2023-03-17 10:48:26,152][    INFO] [195][none] Iter [140/15680]	Data 0.00 (0.00)	Time 0.41 (0.41)	Sup 0.210 (0.185)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099
+[2023-03-17 10:48:30,257][    INFO] [195][none] Iter [150/15680]	Data 0.00 (0.00)	Time 0.41 (0.41)	Sup 0.330 (0.199)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00099

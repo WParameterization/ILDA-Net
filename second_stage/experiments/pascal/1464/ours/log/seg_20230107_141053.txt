@@ -1,0 +1,96 @@
+2023-01-07 14:10:56.327914: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-01-07 14:10:57.398744: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2023-01-07 14:10:57.398872: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2023-01-07 14:10:57.398883: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+[2023-01-07 14:10:58,539][    INFO] {'criterion': {'kwargs': {'use_weight': False}, 'type': 'CELoss'},
+ 'dataset': {'batch_size': 2,
+             'ignore_label': 255,
+             'mean': [123.675, 116.28, 103.53],
+             'n_sup': 195,
+             'noise_std': 0.1,
+             'std': [58.395, 57.12, 57.375],
+             'train': {'GaussianBlur': False,
+                       'crop': {'size': [256, 256], 'type': 'rand'},
+                       'data_list': '../../../../data/splits/pascal/1464/labeled.txt',
+                       'data_root': '../../../../data/VOC2012',
+                       'flip': True,
+                       'rand_resize': [0.5, 2.0]},
+             'type': 'pascal_semi',
+             'val': {'crop': {'size': [256, 256], 'type': 'center'},
+                     'data_list': '../../../../data/splits/pascal/val.txt',
+                     'data_root': '../../../../data/VOC2012'},
+             'workers': 1},
+ 'exp_path': '',
+ 'net': {'bo': {'type': 'u2pl.models.model_helper.Bottleneck'},
+         'decoder': {'type': 'u2pl.models.model_helper.Decoder'},
+         'ema_decay': 0.99,
+         'encoder': {'type': 'u2pl.models.model_helper.Encoder'},
+         'fc_inch': '121,',
+         'filters': '32,',
+         'in_channels': '3,',
+         'n_class': '9,',
+         'num_classes': 9,
+         'sync_bn': True},
+ 'save_path': 'checkpoints101_rgb',
+ 'saver': {'pretrain': '', 'snapshot_dir': 'checkpoints101_rgb'},
+ 'trainer': {'contrastive': {'current_class_negative_threshold': 1,
+                             'current_class_threshold': 0.3,
+                             'high_rank': 20,
+                             'low_entropy_threshold': 20,
+                             'low_rank': 3,
+                             'negative_high_entropy': True,
+                             'num_negatives': 101,
+                             'num_queries': 256,
+                             'temperature': 0.5,
+                             'unsupervised_entropy_ignore': 80},
+             'epochs': 80,
+             'eval_on': True,
+             'lr_scheduler': {'kwargs': {'power': 0.9}, 'mode': 'poly'},
+             'optimizer': {'kwargs': {'lr': 0.001,
+                                      'momentum': 0.9,
+                                      'weight_decay': 0.0001},
+                           'type': 'SGD'},
+             'unsupervised': {'TTA': False,
+                              'apply_aug': 'cutmix',
+                              'drop_percent': 80}}}
+set random seed to 2
+[2023-01-07 14:11:04,571][    INFO] # samples: 693
+[2023-01-07 14:11:04,574][    INFO] # samples: 207
+[2023-01-07 14:11:04,574][    INFO] Get loader Done...
+[2023-01-07 14:11:04,799][    INFO] The kwargs for lr scheduler: 0.9
+Traceback (most recent call last):
+  File "../../../../train_semi_transformer.py", line 514, in <module>
+    main()
+  File "../../../../train_semi_transformer.py", line 177, in main
+    train( model, model_teacher, optimizer,lr_scheduler,sup_loss_fn, train_loader_sup,epoch,tb_logger,logger,memobank,queue_ptrlis,queue_size,)
+  File "../../../../train_semi_transformer.py", line 241, in train
+    outs = model(image_l)#student和teacher模型的应该是一样的，不然不能进行ema
+  File "/root/miniconda3/lib/python3.8/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/root/miniconda3/lib/python3.8/site-packages/torch/nn/parallel/distributed.py", line 705, in forward
+    output = self.module(*inputs[0], **kwargs[0])
+  File "/root/miniconda3/lib/python3.8/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/root/autodl-tmp/U2PL/u2pl/models/vit_transformer.py", line 408, in forward
+    x = self.decoder(x, features)#decoder
+  File "/root/miniconda3/lib/python3.8/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/root/autodl-tmp/U2PL/u2pl/models/vit_transformer.py", line 381, in forward
+    x=ppm(x)
+  File "/root/autodl-tmp/U2PL/u2pl/models/vit_transformer.py", line 43, in ppm
+    shapex = K.int_shape(x)[1]
+NameError: name 'K' is not defined
+Traceback (most recent call last):
+  File "/root/miniconda3/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/root/miniconda3/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/root/miniconda3/lib/python3.8/site-packages/torch/distributed/launch.py", line 340, in <module>
+    main()
+  File "/root/miniconda3/lib/python3.8/site-packages/torch/distributed/launch.py", line 326, in main
+    sigkill_handler(signal.SIGTERM, None)  # not coming back
+  File "/root/miniconda3/lib/python3.8/site-packages/torch/distributed/launch.py", line 301, in sigkill_handler
+    raise subprocess.CalledProcessError(returncode=last_return_code, cmd=cmd)
+subprocess.CalledProcessError: Command '['/root/miniconda3/bin/python', '-u', '../../../../train_semi_transformer.py', '--local_rank=0', '--config=config.yaml', '--seed', '2', '--port', '1254']' returned non-zero exit status 1.
+Killing subprocess 21512

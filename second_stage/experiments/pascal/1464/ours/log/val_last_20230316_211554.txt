@@ -1,0 +1,36 @@
+[2023-03-16 21:15:55,992 INFO eval.py line 77 112550] Namespace(base_size=2048, config='config.yaml', crop=False, model_path='checkpoints101_rgb/ckpt.pth', names_path='../../vis_meta/cityscapes/cityscapesnames.mat', save_folder='checkpoints101_rgb/results', scales=[1.0])
+[2023-03-16 21:15:55,993 INFO eval.py line 118 112550] => creating model from 'checkpoints101_rgb/ckpt.pth' ...
+[2023-03-16 21:16:00,597 INFO eval.py line 124 112550] => load checkpoint[teacher_state]
+[2023-03-16 21:16:00,710 INFO eval.py line 129 112550] Load Model Done!
+[2023-03-16 21:16:00,711 INFO eval.py line 316 112550] >>>>>>>>>>>>>>>> Start Evaluation >>>>>>>>>>>>>>>>
+[2023-03-16 21:16:01,893 INFO eval.py line 347 112550] Test: [10/207] Data 0.019 (0.017) Batch 0.047 (0.118).
+[2023-03-16 21:16:02,370 INFO eval.py line 347 112550] Test: [20/207] Data 0.020 (0.019) Batch 0.050 (0.083).
+[2023-03-16 21:16:02,849 INFO eval.py line 347 112550] Test: [30/207] Data 0.020 (0.019) Batch 0.049 (0.071).
+[2023-03-16 21:16:03,323 INFO eval.py line 347 112550] Test: [40/207] Data 0.020 (0.019) Batch 0.051 (0.065).
+[2023-03-16 21:16:03,809 INFO eval.py line 347 112550] Test: [50/207] Data 0.019 (0.020) Batch 0.046 (0.062).
+[2023-03-16 21:16:04,353 INFO eval.py line 347 112550] Test: [60/207] Data 0.024 (0.020) Batch 0.056 (0.061).
+[2023-03-16 21:16:04,828 INFO eval.py line 347 112550] Test: [70/207] Data 0.021 (0.020) Batch 0.049 (0.059).
+[2023-03-16 21:16:05,307 INFO eval.py line 347 112550] Test: [80/207] Data 0.018 (0.020) Batch 0.045 (0.057).
+[2023-03-16 21:16:05,794 INFO eval.py line 347 112550] Test: [90/207] Data 0.025 (0.020) Batch 0.054 (0.056).
+[2023-03-16 21:16:06,283 INFO eval.py line 347 112550] Test: [100/207] Data 0.020 (0.020) Batch 0.047 (0.056).
+[2023-03-16 21:16:06,777 INFO eval.py line 347 112550] Test: [110/207] Data 0.022 (0.021) Batch 0.050 (0.055).
+[2023-03-16 21:16:07,275 INFO eval.py line 347 112550] Test: [120/207] Data 0.020 (0.021) Batch 0.050 (0.055).
+[2023-03-16 21:16:07,761 INFO eval.py line 347 112550] Test: [130/207] Data 0.018 (0.021) Batch 0.046 (0.054).
+[2023-03-16 21:16:08,257 INFO eval.py line 347 112550] Test: [140/207] Data 0.021 (0.021) Batch 0.049 (0.054).
+[2023-03-16 21:16:08,737 INFO eval.py line 347 112550] Test: [150/207] Data 0.019 (0.021) Batch 0.046 (0.053).
+[2023-03-16 21:16:09,275 INFO eval.py line 347 112550] Test: [160/207] Data 0.020 (0.021) Batch 0.046 (0.054).
+[2023-03-16 21:16:09,752 INFO eval.py line 347 112550] Test: [170/207] Data 0.019 (0.021) Batch 0.048 (0.053).
+[2023-03-16 21:16:10,238 INFO eval.py line 347 112550] Test: [180/207] Data 0.019 (0.021) Batch 0.048 (0.053).
+[2023-03-16 21:16:10,714 INFO eval.py line 347 112550] Test: [190/207] Data 0.020 (0.021) Batch 0.047 (0.053).
+[2023-03-16 21:16:11,196 INFO eval.py line 347 112550] Test: [200/207] Data 0.022 (0.021) Batch 0.051 (0.052).
+[2023-03-16 21:16:11,572 INFO eval.py line 374 112550]  * class [0] IoU 98.09
+[2023-03-16 21:16:11,572 INFO eval.py line 374 112550]  * class [1] IoU 87.56
+[2023-03-16 21:16:11,572 INFO eval.py line 374 112550]  * class [2] IoU 93.61
+[2023-03-16 21:16:11,572 INFO eval.py line 374 112550]  * class [3] IoU 91.38
+[2023-03-16 21:16:11,573 INFO eval.py line 374 112550]  * class [4] IoU 98.50
+[2023-03-16 21:16:11,573 INFO eval.py line 374 112550]  * class [5] IoU 99.09
+[2023-03-16 21:16:11,573 INFO eval.py line 374 112550]  * class [6] IoU 98.39
+[2023-03-16 21:16:11,573 INFO eval.py line 374 112550]  * class [7] IoU 96.80
+[2023-03-16 21:16:11,573 INFO eval.py line 374 112550]  * class [8] IoU 99.71
+[2023-03-16 21:16:11,573 INFO eval.py line 375 112550]  * mIoU 95.90
+[2023-03-16 21:16:11,573 INFO eval.py line 376 112550] <<<<<<<<<<<<<<<<< End  Evaluation <<<<<<<<<<<<<<<<<

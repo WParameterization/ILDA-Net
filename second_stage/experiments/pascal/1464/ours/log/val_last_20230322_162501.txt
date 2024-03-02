@@ -1,0 +1,23 @@
+Using TensorFlow backend.
+[2023-03-22 16:25:07,688 INFO eval.py line 79 186] Namespace(base_size=2048, config='config.yaml', crop=False, img_size=256, model_path='checkpoints101_rgb/ckpt_best.pth', n_skip=3, names_path='../../vis_meta/cityscapes/cityscapesnames.mat', num_classes=9, save_folder='checkpoints101_rgb/results', scales=[1.0], vit_name='R50-ViT-B_16', vit_patches_size=16)
+[2023-03-22 16:25:07,691 INFO eval.py line 120 186] => creating model from 'checkpoints101_rgb/ckpt_best.pth' ...
+Traceback (most recent call last):
+  File "../../../../eval.py", line 392, in <module>
+    main()
+  File "../../../../eval.py", line 134, in main
+    checkpoint = torch.load(args.model_path)
+  File "/root/miniconda3/lib/python3.8/site-packages/torch/serialization.py", line 594, in load
+    return _load(opened_zipfile, map_location, pickle_module, **pickle_load_args)
+  File "/root/miniconda3/lib/python3.8/site-packages/torch/serialization.py", line 853, in _load
+    result = unpickler.load()
+  File "/root/miniconda3/lib/python3.8/site-packages/torch/serialization.py", line 845, in persistent_load
+    load_tensor(data_type, size, key, _maybe_decode_ascii(location))
+  File "/root/miniconda3/lib/python3.8/site-packages/torch/serialization.py", line 834, in load_tensor
+    loaded_storages[key] = restore_location(storage, location)
+  File "/root/miniconda3/lib/python3.8/site-packages/torch/serialization.py", line 175, in default_restore_location
+    result = fn(storage, location)
+  File "/root/miniconda3/lib/python3.8/site-packages/torch/serialization.py", line 151, in _cuda_deserialize
+    device = validate_cuda_device(location)
+  File "/root/miniconda3/lib/python3.8/site-packages/torch/serialization.py", line 135, in validate_cuda_device
+    raise RuntimeError('Attempting to deserialize object on a CUDA '
+RuntimeError: Attempting to deserialize object on a CUDA device but torch.cuda.is_available() is False. If you are running on a CPU-only machine, please use torch.load with map_location=torch.device('cpu') to map your storages to the CPU.

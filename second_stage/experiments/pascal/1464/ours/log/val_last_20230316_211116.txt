@@ -1,0 +1,12 @@
+[2023-03-16 21:11:18,459 INFO eval.py line 77 110328] Namespace(base_size=2048, config='config.yaml', crop=False, model_path='checkpoints101_rgb/ckpt.pth', names_path='../../vis_meta/cityscapes/cityscapesnames.mat', save_folder='checkpoints101_rgb/results', scales=[1.0])
+[2023-03-16 21:11:18,462 INFO eval.py line 118 110328] => creating model from 'checkpoints101_rgb/ckpt.pth' ...
+Traceback (most recent call last):
+  File "../../../../eval.py", line 380, in <module>
+    main()
+  File "../../../../eval.py", line 121, in main
+    model = ModelBuilder(cfg["net"])
+  File "/root/autodl-tmp/U2PL/u2pl/models/model_helper.py", line 16, in __init__
+    self.encoder = self._build_encoder(net_cfg["encoder"])
+  File "/root/autodl-tmp/U2PL/u2pl/models/model_helper.py", line 27, in _build_encoder
+    enc_cfg["kwargs"].update({"sync_bn": self._sync_bn})
+KeyError: 'kwargs'

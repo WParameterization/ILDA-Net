@@ -1,0 +1,32 @@
+Using TensorFlow backend.
+Traceback (most recent call last):
+  File "../../../../train_semi_transformer.py", line 19, in <module>
+    from u2pl.models.vit_transformer import VisionTransformer
+  File "/root/autodl-tmp/U2PL/u2pl/models/vit_transformer.py", line 23, in <module>
+    from keras.optimizers import *
+  File "/root/miniconda3/envs/uda/lib/python3.7/site-packages/keras/__init__.py", line 3, in <module>
+    from . import utils
+  File "/root/miniconda3/envs/uda/lib/python3.7/site-packages/keras/utils/__init__.py", line 6, in <module>
+    from . import conv_utils
+  File "/root/miniconda3/envs/uda/lib/python3.7/site-packages/keras/utils/conv_utils.py", line 9, in <module>
+    from .. import backend as K
+  File "/root/miniconda3/envs/uda/lib/python3.7/site-packages/keras/backend/__init__.py", line 1, in <module>
+    from .load_backend import epsilon
+  File "/root/miniconda3/envs/uda/lib/python3.7/site-packages/keras/backend/load_backend.py", line 90, in <module>
+    from .tensorflow_backend import *
+  File "/root/miniconda3/envs/uda/lib/python3.7/site-packages/keras/backend/tensorflow_backend.py", line 5, in <module>
+    import tensorflow as tf
+ModuleNotFoundError: No module named 'tensorflow'
+Traceback (most recent call last):
+  File "/root/miniconda3/envs/uda/lib/python3.7/runpy.py", line 193, in _run_module_as_main
+    "__main__", mod_spec)
+  File "/root/miniconda3/envs/uda/lib/python3.7/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/root/miniconda3/envs/uda/lib/python3.7/site-packages/torch/distributed/launch.py", line 340, in <module>
+    main()
+  File "/root/miniconda3/envs/uda/lib/python3.7/site-packages/torch/distributed/launch.py", line 326, in main
+    sigkill_handler(signal.SIGTERM, None)  # not coming back
+  File "/root/miniconda3/envs/uda/lib/python3.7/site-packages/torch/distributed/launch.py", line 301, in sigkill_handler
+    raise subprocess.CalledProcessError(returncode=last_return_code, cmd=cmd)
+subprocess.CalledProcessError: Command '['/root/miniconda3/envs/uda/bin/python', '-u', '../../../../train_semi_transformer.py', '--local_rank=0', '--config=config.yaml', '--seed', '2', '--port', '1254']' returned non-zero exit status 1.
+Killing subprocess 25549

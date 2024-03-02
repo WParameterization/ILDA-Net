@@ -1,0 +1,68 @@
+Using TensorFlow backend.
+[2023-03-17 10:46:04,153][    INFO] {'criterion': {'kwargs': {'use_weight': False}, 'type': 'CELoss'},
+ 'dataset': {'batch_size': 5,
+             'ignore_label': 255,
+             'mean': [123.675, 116.28, 103.53],
+             'n_sup': 195,
+             'noise_std': 0.1,
+             'std': [58.395, 57.12, 57.375],
+             'train': {'GaussianBlur': False,
+                       'crop': {'size': [256, 256], 'type': 'rand'},
+                       'data_list': '../../../../data/splits/pascal/1464/labeled.txt',
+                       'data_root': '../../../../data/VOC2012',
+                       'flip': True,
+                       'rand_resize': [0.5, 2.0]},
+             'type': 'pascal_semi',
+             'val': {'crop': {'size': [256, 256], 'type': 'center'},
+                     'data_list': '../../../../data/splits/pascal/val.txt',
+                     'data_root': '../../../../data/VOC2012'},
+             'workers': 1},
+ 'exp_path': '',
+ 'net': {'bo': {'type': 'u2pl.models.model_helper.Bottleneck'},
+         'decoder': {'type': 'u2pl.models.model_helper.Decoder'},
+         'ema_decay': 0.99,
+         'encoder': {'type': 'u2pl.models.model_helper.Encoder'},
+         'fc_inch': '121,',
+         'filters': '32,',
+         'in_channels': '3,',
+         'n_class': '9,',
+         'num_classes': 9,
+         'sync_bn': True},
+ 'save_path': 'checkpoints101_rgb',
+ 'saver': {'pretrain': '', 'snapshot_dir': 'checkpoints101_rgb'},
+ 'trainer': {'contrastive': {'current_class_negative_threshold': 1,
+                             'current_class_threshold': 0.3,
+                             'high_rank': 20,
+                             'low_entropy_threshold': 20,
+                             'low_rank': 3,
+                             'negative_high_entropy': True,
+                             'num_negatives': 101,
+                             'num_queries': 256,
+                             'temperature': 0.5,
+                             'unsupervised_entropy_ignore': 80},
+             'epochs': 80,
+             'eval_on': True,
+             'lr_scheduler': {'kwargs': {'power': 0.9}, 'mode': 'poly'},
+             'optimizer': {'kwargs': {'lr': 0.001,
+                                      'momentum': 0.9,
+                                      'weight_decay': 0.0001},
+                           'type': 'SGD'},
+             'unsupervised': {'TTA': False,
+                              'apply_aug': 'cutmix',
+                              'drop_percent': 80}}}
+set random seed to 2
+[2023-03-17 10:46:05,893][    INFO] # samples: 693
+[2023-03-17 10:46:05,894][    INFO] # samples: 207
+[2023-03-17 10:46:05,894][    INFO] Get loader Done...
+[2023-03-17 10:46:06,893][    INFO] The kwargs for lr scheduler: 0.9
+[2023-03-17 10:46:09,760][    INFO] [195][none] Iter [0/31440]	Data 0.00 (0.00)	Time 2.75 (2.75)	Sup 2.926 (2.926)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-03-17 10:46:12,127][    INFO] [195][none] Iter [10/31440]	Data 0.00 (0.00)	Time 0.24 (0.24)	Sup 0.877 (1.787)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-03-17 10:46:14,465][    INFO] [195][none] Iter [20/31440]	Data 0.00 (0.00)	Time 0.23 (0.23)	Sup 0.537 (0.651)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-03-17 10:46:16,801][    INFO] [195][none] Iter [30/31440]	Data 0.00 (0.00)	Time 0.24 (0.23)	Sup 0.897 (0.557)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-03-17 10:46:19,142][    INFO] [195][none] Iter [40/31440]	Data 0.00 (0.00)	Time 0.23 (0.23)	Sup 0.472 (0.450)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-03-17 10:46:21,484][    INFO] [195][none] Iter [50/31440]	Data 0.00 (0.00)	Time 0.24 (0.23)	Sup 0.296 (0.424)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-03-17 10:46:23,824][    INFO] [195][none] Iter [60/31440]	Data 0.00 (0.00)	Time 0.23 (0.23)	Sup 0.297 (0.376)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-03-17 10:46:26,172][    INFO] [195][none] Iter [70/31440]	Data 0.00 (0.00)	Time 0.24 (0.23)	Sup 0.386 (0.289)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-03-17 10:46:28,522][    INFO] [195][none] Iter [80/31440]	Data 0.00 (0.00)	Time 0.23 (0.23)	Sup 0.256 (0.268)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-03-17 10:46:30,888][    INFO] [195][none] Iter [90/31440]	Data 0.00 (0.00)	Time 0.24 (0.24)	Sup 0.245 (0.278)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2023-03-17 10:46:33,252][    INFO] [195][none] Iter [100/31440]	Data 0.00 (0.00)	Time 0.24 (0.24)	Sup 0.150 (0.204)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100

@@ -1,0 +1,26 @@
+2023-03-17 10:20:39.415653: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-03-17 10:20:41.396386: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /root/miniconda3/lib/python3.8/site-packages/cv2/../../lib64:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2023-03-17 10:20:41.396608: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /root/miniconda3/lib/python3.8/site-packages/cv2/../../lib64:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2023-03-17 10:20:41.396624: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+Traceback (most recent call last):
+  File "../../../../train_semi_vit.py", line 512, in <module>
+    main()
+  File "../../../../train_semi_vit.py", line 63, in main
+    rank, word_size = setup_distributed(port=args.port)
+  File "/root/autodl-tmp/U2PL/u2pl/utils/dist_helper.py", line 39, in setup_distributed
+    torch.cuda.set_device(rank % num_gpus)
+ZeroDivisionError: integer division or modulo by zero
+Traceback (most recent call last):
+  File "/root/miniconda3/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/root/miniconda3/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/root/miniconda3/lib/python3.8/site-packages/torch/distributed/launch.py", line 340, in <module>
+    main()
+  File "/root/miniconda3/lib/python3.8/site-packages/torch/distributed/launch.py", line 326, in main
+    sigkill_handler(signal.SIGTERM, None)  # not coming back
+  File "/root/miniconda3/lib/python3.8/site-packages/torch/distributed/launch.py", line 301, in sigkill_handler
+    raise subprocess.CalledProcessError(returncode=last_return_code, cmd=cmd)
+subprocess.CalledProcessError: Command '['/root/miniconda3/bin/python', '-u', '../../../../train_semi_vit.py', '--local_rank=0', '--config=config1.yaml', '--seed', '2', '--port', '1255']' returned non-zero exit status 1.
+Killing subprocess 490592

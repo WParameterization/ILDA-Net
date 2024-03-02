@@ -1,0 +1,68 @@
+[2022-12-08 20:14:32,046][    INFO] {'criterion': {'kwargs': {'use_weight': False}, 'type': 'CELoss'},
+ 'dataset': {'batch_size': 2,
+             'ignore_label': 255,
+             'mean': [123.675, 116.28, 103.53],
+             'n_sup': 195,
+             'noise_std': 0.1,
+             'std': [58.395, 57.12, 57.375],
+             'train': {'GaussianBlur': False,
+                       'crop': {'size': [128, 128], 'type': 'rand'},
+                       'data_list': '../../../../data/splits/pascal/1464/labeled.txt',
+                       'data_root': '../../../../data/VOC2012',
+                       'flip': True,
+                       'rand_resize': [0.5, 2.0]},
+             'type': 'pascal_semi',
+             'val': {'crop': {'size': [128, 128], 'type': 'center'},
+                     'data_list': '../../../../data/splits/pascal/val.txt',
+                     'data_root': '../../../../data/VOC2012'},
+             'workers': 1},
+ 'exp_path': '',
+ 'net': {'decoder': {'kwargs': {'dilations': [12, 24, 36], 'inner_planes': 256},
+                     'type': 'u2pl.models.decoder.dec_deeplabv3_plus'},
+         'ema_decay': 0.99,
+         'encoder': {'kwargs': {'fpn': True,
+                                'multi_grid': True,
+                                'replace_stride_with_dilation': [False,
+                                                                 True,
+                                                                 True],
+                                'zero_init_residual': True},
+                     'type': 'u2pl.models.resnet.resnet101'},
+         'num_classes': 9,
+         'sync_bn': True},
+ 'save_path': 'checkpoints101_rgb',
+ 'saver': {'pretrain': '', 'snapshot_dir': 'checkpoints101_rgb'},
+ 'trainer': {'contrastive': {'current_class_negative_threshold': 1,
+                             'current_class_threshold': 0.3,
+                             'high_rank': 20,
+                             'low_entropy_threshold': 20,
+                             'low_rank': 3,
+                             'negative_high_entropy': True,
+                             'num_negatives': 101,
+                             'num_queries': 256,
+                             'temperature': 0.5,
+                             'unsupervised_entropy_ignore': 80},
+             'epochs': 80,
+             'eval_on': True,
+             'lr_scheduler': {'kwargs': {'power': 0.9}, 'mode': 'poly'},
+             'optimizer': {'kwargs': {'lr': 0.001,
+                                      'momentum': 0.9,
+                                      'weight_decay': 0.0001},
+                           'type': 'SGD'},
+             'unsupervised': {'TTA': False,
+                              'apply_aug': 'cutmix',
+                              'drop_percent': 80}}}
+set random seed to 2
+[Info] Load ImageNet pretrain from '/home/jidian/sdb1/jinlei/U2PL/prtain/resnet101.pth' 
+missing_keys:  [] 
+unexpected_keys:  ['fc.weight', 'fc.bias']
+[2022-12-08 20:14:34,291][    INFO] # samples: 202
+[2022-12-08 20:14:34,294][    INFO] # samples: 1418
+[2022-12-08 20:14:34,297][    INFO] # samples: 180
+[2022-12-08 20:14:34,297][    INFO] Get loader Done...
+[Info] Load ImageNet pretrain from '/home/jidian/sdb1/jinlei/U2PL/prtain/resnet101.pth' 
+missing_keys:  [] 
+unexpected_keys:  ['fc.weight', 'fc.bias']
+[2022-12-08 20:14:37,058][    INFO] The kwargs for lr scheduler: 0.9
+[2022-12-08 20:14:42,040][    INFO] [195][none] Iter [0/78560]	Data 0.00 (0.00)	Time 4.90 (4.90)	Sup 2.463 (2.463)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2022-12-08 20:14:44,798][    INFO] [195][none] Iter [10/78560]	Data 0.00 (0.00)	Time 0.19 (0.28)	Sup 0.406 (1.210)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100
+[2022-12-08 20:14:47,648][    INFO] [195][none] Iter [20/78560]	Data 0.00 (0.00)	Time 0.30 (0.28)	Sup 0.582 (0.611)	Uns 0.000 (0.000)	Con 0.000 (0.000)	LR 0.00100

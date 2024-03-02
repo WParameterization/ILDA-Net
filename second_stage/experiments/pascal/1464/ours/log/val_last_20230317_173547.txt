@@ -1,0 +1,13 @@
+[2023-03-17 17:35:48,714 INFO eval.py line 77 43006] Namespace(base_size=2048, config='config.yaml', crop=False, model_path='checkpoints101_rgb/ckpt_best.pth', names_path='../../vis_meta/cityscapes/cityscapesnames.mat', save_folder='checkpoints101_rgb/results', scales=[1.0])
+[2023-03-17 17:35:48,716 INFO eval.py line 118 43006] => creating model from 'checkpoints101_rgb/ckpt_best.pth' ...
+[2023-03-17 17:35:52,969 INFO eval.py line 124 43006] => load checkpoint[teacher_state]
+Traceback (most recent call last):
+  File "../../../../eval.py", line 380, in <module>
+    main()
+  File "../../../../eval.py", line 127, in main
+    model.load_state_dict(saved_state_dict, strict=False)
+  File "/root/miniconda3/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1051, in load_state_dict
+    raise RuntimeError('Error(s) in loading state_dict for {}:\n\t{}'.format(
+RuntimeError: Error(s) in loading state_dict for Segmentation_model_Point:
+	size mismatch for end.classifier.weight: copying a param with shape torch.Size([9, 16, 1, 1]) from checkpoint, the shape in current model is torch.Size([9, 32, 1, 1]).
+	size mismatch for end.representation.0.weight: copying a param with shape torch.Size([256, 16, 3, 3]) from checkpoint, the shape in current model is torch.Size([256, 32, 3, 3]).

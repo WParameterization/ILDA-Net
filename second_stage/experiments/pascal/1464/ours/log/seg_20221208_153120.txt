@@ -1,0 +1,75 @@
+[2022-12-08 15:31:23,253][    INFO] {'criterion': {'kwargs': {'use_weight': False}, 'type': 'CELoss'},
+ 'dataset': {'batch_size': 2,
+             'ignore_label': 255,
+             'mean': [123.675, 116.28, 103.53],
+             'n_sup': 195,
+             'noise_std': 0.1,
+             'std': [58.395, 57.12, 57.375],
+             'train': {'GaussianBlur': False,
+                       'crop': {'size': [128, 128], 'type': 'rand'},
+                       'data_list': '../../../../data/splits/pascal/1464/labeled.txt',
+                       'data_root': '../../../../data/VOC2012',
+                       'flip': True,
+                       'rand_resize': [0.5, 2.0]},
+             'type': 'pascal_semi',
+             'val': {'crop': {'size': [128, 128], 'type': 'center'},
+                     'data_list': '../../../../data/splits/pascal/val.txt',
+                     'data_root': '../../../../data/VOC2012'},
+             'workers': 1},
+ 'exp_path': '',
+ 'net': {'bo': {'type': 'u2pl.models.model_helper.Bottleneck'},
+         'decoder': {'type': 'u2pl.models.model_helper.Decoder'},
+         'ema_decay': 0.99,
+         'encoder': {'type': 'u2pl.models.model_helper.Encoder'},
+         'fc_inch': 121,
+         'filters': '32,',
+         'in_channels': '1,',
+         'n_class': '9,',
+         'num_classes': 9,
+         'sync_bn': True},
+ 'save_path': 'checkpoints101_rgb',
+ 'saver': {'pretrain': '', 'snapshot_dir': 'checkpoints101_rgb'},
+ 'trainer': {'contrastive': {'current_class_negative_threshold': 1,
+                             'current_class_threshold': 0.3,
+                             'high_rank': 20,
+                             'low_entropy_threshold': 20,
+                             'low_rank': 3,
+                             'negative_high_entropy': True,
+                             'num_negatives': 101,
+                             'num_queries': 256,
+                             'temperature': 0.5,
+                             'unsupervised_entropy_ignore': 80},
+             'epochs': 80,
+             'eval_on': True,
+             'lr_scheduler': {'kwargs': {'power': 0.9}, 'mode': 'poly'},
+             'optimizer': {'kwargs': {'lr': 0.001,
+                                      'momentum': 0.9,
+                                      'weight_decay': 0.0001},
+                           'type': 'SGD'},
+             'unsupervised': {'TTA': False,
+                              'apply_aug': 'cutmix',
+                              'drop_percent': 80}}}
+set random seed to 2
+Traceback (most recent call last):
+  File "../../../../train_semi1.py", line 479, in <module>
+    main()
+  File "../../../../train_semi1.py", line 68, in main
+    model = Segmentation_model_Point(cfg["net"])
+  File "/media/lenovo/新加卷1/U2PL/u2pl/models/model_helper.py", line 53, in __init__
+    self.encoder = Encoder(filters=filters, in_channels=in_channels, n_block=n_block, batch_norm=batchnorm)
+  File "/media/lenovo/新加卷1/U2PL/u2pl/models/model_helper.py", line 69, in __init__
+    out_ch = filters * 2 ** i
+TypeError: unsupported operand type(s) for *: 'dict' and 'int'
+Traceback (most recent call last):
+  File "/home/lenovo/anaconda3/envs/ronghe/lib/python3.6/runpy.py", line 193, in _run_module_as_main
+    "__main__", mod_spec)
+  File "/home/lenovo/anaconda3/envs/ronghe/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/home/lenovo/anaconda3/envs/ronghe/lib/python3.6/site-packages/torch/distributed/launch.py", line 340, in <module>
+    main()
+  File "/home/lenovo/anaconda3/envs/ronghe/lib/python3.6/site-packages/torch/distributed/launch.py", line 326, in main
+    sigkill_handler(signal.SIGTERM, None)  # not coming back
+  File "/home/lenovo/anaconda3/envs/ronghe/lib/python3.6/site-packages/torch/distributed/launch.py", line 301, in sigkill_handler
+    raise subprocess.CalledProcessError(returncode=last_return_code, cmd=cmd)
+subprocess.CalledProcessError: Command '['/home/lenovo/anaconda3/envs/ronghe/bin/python', '-u', '../../../../train_semi1.py', '--local_rank=0', '--config=config.yaml', '--seed', '2', '--port', '1254']' returned non-zero exit status 1.
+Killing subprocess 19099
